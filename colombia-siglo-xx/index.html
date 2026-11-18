@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Colombia en el Siglo XX</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Mapa interactivo de Colombia en el siglo XX con una cronología de los hechos más relevantes entre 1900 y 2000, en estilo de carta antigua.">
+<meta name="description" content="Atlas de clase para Historia de Colombia Siglo XX: mapa interactivo en estilo de carta antigua, cronología, sesiones del syllabus y preguntas para la participación en clase.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap">
@@ -18,7 +18,7 @@
   --ink:#2f2418; --ink-2:#5b4733; --ink-3:#8b7357;
   --sea:#c3cfbf; --sea-ink:#4f6d74; --river:#3b6174;
   --frontier:#a23d2a; --halo:rgba(244,234,208,.82);
-  --c-pol:#2f4d6b; --c-con:#8e2a1e; --c-ter:#4b6a33; --c-eco:#a06c18; --c-cul:#6b4a72; --c-nat:#4b5458;
+  --k1:#94600f; --k2:#8e2a1e; --k3:#2f4d6b;
   --f-display:"IM Fell English SC","IM Fell English",Georgia,"Times New Roman",serif;
   --f-fell:"IM Fell English",Georgia,"Times New Roman",serif;
   --f-body:"EB Garamond",Garamond,Georgia,"Times New Roman",serif;
@@ -170,6 +170,92 @@ button{font:inherit; color:inherit}
   white-space:nowrap; transform:translate(-50%, calc(-100% - 10px)); z-index:5; max-width:none}
 .crono-hint{margin:2px 14px 0; font-family:var(--f-type); font-size:11px; letter-spacing:.04em; color:var(--ink-3)}
 
+[hidden]{display:none !important}
+
+/* ---------- Preguntas ---------- */
+.qs{list-style:none; margin:0; padding:0; display:grid; gap:11px}
+.qs li{display:grid; grid-template-columns:auto minmax(0,1fr); gap:10px; align-items:start}
+.qs input{appearance:none; -webkit-appearance:none; width:19px; height:19px; margin:3px 0 0; border:1.5px solid var(--ink-2); background:var(--paper-hi); cursor:pointer; display:grid; place-items:center; flex:none}
+.qs input:checked{background:var(--ink); border-color:var(--ink)}
+.qs input:checked::after{content:""; width:9px; height:5px; border-left:2px solid var(--paper-hi); border-bottom:2px solid var(--paper-hi); transform:translateY(-1px) rotate(-45deg)}
+.qs label{cursor:pointer; font-size:16.5px; line-height:1.45}
+.qs li.done label{color:var(--ink-3)}
+.qs li.done .qtext{text-decoration:line-through; text-decoration-color:rgba(139,115,87,.55)}
+.qtag{display:inline-block; font-family:var(--f-type); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); border:1px solid var(--ink-3); padding:1px 5px 0; margin-right:7px; vertical-align:2px; white-space:nowrap}
+.ficha-qs{margin-top:18px; padding:14px 16px 16px; background:var(--paper); border:1px solid var(--paper-lo)}
+.ficha-qs h3, .ses h4{margin:0 0 10px; font-family:var(--f-display); font-weight:400; font-size:19px; letter-spacing:.03em}
+.ficha-week{display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline}
+
+/* ---------- Secciones del curso ---------- */
+.sec{display:grid; gap:18px; scroll-margin-top:12px}
+.sec-head{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 24px; align-items:end; border-bottom:1px solid var(--ink); padding-bottom:12px}
+.sec-head h2{margin:2px 0 0; font-family:var(--f-display); font-weight:400; font-size:clamp(28px,3.4vw,42px); line-height:1.02; text-wrap:balance}
+.sec-head .sub{margin:8px 0 0; color:var(--ink-2); max-width:72ch; font-size:16.5px}
+.prog{margin:0; display:grid; gap:6px; justify-items:end; font-family:var(--f-type); font-size:12px; color:var(--ink-2); text-align:right}
+.prog b{font-weight:400; color:var(--ink); font-size:15px}
+.mini{background:none; border:none; padding:0; cursor:pointer; font-family:var(--f-type); font-size:11.5px; letter-spacing:.06em; color:var(--ink-2); text-decoration:underline; text-underline-offset:3px}
+.plan-grid{display:grid; grid-template-columns:minmax(250px, 330px) minmax(0,1fr); gap:26px; align-items:start}
+.idx{display:grid; gap:16px}
+.idx-c{display:grid; gap:1px}
+.idx-h{display:flex; justify-content:space-between; gap:8px; font-family:var(--f-type); font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-2); border-bottom:2px solid var(--kc); padding:0 8px 5px; margin-bottom:4px}
+.wk{display:grid; grid-template-columns:2.4em minmax(0,1fr) auto; gap:8px; align-items:baseline; width:100%; text-align:left; background:none; border:none; border-left:3px solid transparent; padding:7px 8px; cursor:pointer}
+.wk:hover{background:rgba(244,234,208,.6)}
+.wk[aria-current="true"]{background:var(--paper-hi); border-left-color:var(--kc); box-shadow:0 1px 0 var(--paper-lo)}
+.wn{font-family:var(--f-type); font-size:13px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.we{font-size:16px; line-height:1.25}
+.wc{font-family:var(--f-type); font-size:11px; color:var(--ink-3); white-space:nowrap}
+.wk-par{display:grid; grid-template-columns:2.4em minmax(0,1fr); gap:8px; padding:5px 8px 5px 11px; font-family:var(--f-type); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3)}
+.ses{--kc:var(--ink); background:var(--paper-hi); border:1px solid var(--paper-lo); border-top:4px solid var(--kc); padding:20px clamp(18px,3vw,32px) 26px;
+  box-shadow:0 16px 30px -20px rgba(47,36,24,.7); display:grid; gap:18px; min-width:0}
+.ses-k{margin:0; font-family:var(--f-type); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--kc)}
+.ses h3{margin:-10px 0 0; font-family:var(--f-display); font-weight:400; font-size:clamp(27px,2.8vw,36px); line-height:1.06; text-wrap:balance}
+.ses-q{margin:0; font-family:var(--f-fell); font-style:italic; font-size:clamp(21px,2.1vw,26px); line-height:1.3; padding-left:16px; border-left:2px solid var(--kc); text-wrap:balance}
+.ses-q small{display:block; font-family:var(--f-type); font-style:normal; font-size:11px; letter-spacing:.04em; color:var(--ink-3); margin-top:8px; text-wrap:pretty}
+.ses-meta{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:12px 22px; margin:0}
+.ses-meta dt{font-family:var(--f-type); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3)}
+.ses-meta dd{margin:3px 0 0; font-size:15.5px; line-height:1.4}
+.evchips{display:flex; flex-wrap:wrap; gap:6px}
+.evchip{display:inline-flex; gap:7px; align-items:baseline; cursor:pointer; border:1px solid var(--ink-3); background:var(--paper); padding:5px 10px; font-size:15px; line-height:1.2; text-align:left}
+.evchip:hover{border-color:var(--ink)}
+.evchip b{font-family:var(--f-type); font-weight:400; font-size:12px; color:var(--ink-2)}
+.evchip.alt{border-style:dashed; background:transparent}
+.ses-actions{display:flex; flex-wrap:wrap; gap:8px; padding-top:4px; border-top:1px dashed var(--ink-3)}
+.ses-actions .btn{margin-top:12px}
+.copy-box{width:100%; min-height:140px; font-family:var(--f-type); font-size:12.5px; background:var(--paper); border:1px solid var(--ink-3); padding:10px; color:var(--ink)}
+
+/* ---------- Lámina II ---------- */
+.lam-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:26px; align-items:start}
+.plano-wrap{padding:6px; border:1px solid var(--ink); background:var(--paper-hi); box-shadow:0 14px 30px -18px rgba(47,36,24,.7); position:sticky; top:12px}
+#plano{display:block; width:100%; height:auto; border:2px solid var(--ink)}
+.pl-street{font-family:var(--f-fell); font-style:italic; font-size:11px; fill:var(--ink-2)}
+.pl-lab{font-family:var(--f-display); font-size:12px; letter-spacing:.06em; fill:var(--ink)}
+.pl-note{font-family:var(--f-type); font-size:9px; letter-spacing:.06em; fill:var(--ink-3)}
+.pl-stop{cursor:pointer}
+.pl-stop text{font-family:var(--f-display); font-size:13px; fill:var(--paper-hi); pointer-events:none}
+.pl-stop.on circle{fill:var(--frontier)}
+.stops{list-style:none; margin:0; padding:0; display:grid; gap:12px}
+.stop{display:grid; grid-template-columns:36px minmax(0,1fr); gap:12px; padding:14px 16px 16px; background:var(--paper-hi); border:1px solid var(--paper-lo); scroll-margin-top:12px}
+.stop.on{border-color:var(--ink); box-shadow:0 10px 22px -16px rgba(47,36,24,.8)}
+.stop-n{width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--paper-hi); display:grid; place-items:center; font-family:var(--f-display); font-size:15px; border:none; cursor:pointer; padding:0}
+.stop.on .stop-n{background:var(--frontier)}
+.stop h3{margin:2px 0 0; font-family:var(--f-display); font-weight:400; font-size:21px; line-height:1.15}
+.stop p{margin:4px 0 10px; font-size:15.5px; color:var(--ink-2)}
+.stop .evchips{margin-bottom:12px}
+
+/* ---------- Pregunta al azar ---------- */
+.modal{position:fixed; inset:0; z-index:50; display:grid; place-items:center; background:rgba(47,36,24,.58);
+  padding:max(16px, env(safe-area-inset-top,0px)) max(16px, env(safe-area-inset-right,0px)) max(16px, env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px))}
+.modal-card{--kc:var(--ink); width:min(880px,100%); max-height:100%; overflow:auto; background:var(--paper-hi); border:2px solid var(--ink); outline:1px solid var(--ink); outline-offset:-9px;
+  padding:clamp(24px,4.5vw,52px); display:grid; gap:18px; box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.modal-k{margin:0; font-family:var(--f-type); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--kc)}
+.modal-q{margin:0; font-family:var(--f-fell); font-size:clamp(24px,3.4vw,42px); line-height:1.24; text-wrap:pretty}
+.modal-src{margin:0; font-size:16.5px; color:var(--ink-2); font-style:italic}
+.modal-actions{display:flex; flex-wrap:wrap; gap:8px}
+.crono-tools{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.wpill{display:inline-flex; gap:8px; align-items:center; background:var(--ink); color:var(--paper-hi); border:none; padding:6px 10px; font-size:14.5px; cursor:pointer; line-height:1.1}
+.wpill span{font-family:var(--f-type); font-size:11px; opacity:.8}
+.chip-all i{display:none}
+
 /* ---------- Pie ---------- */
 .foot{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px 32px; font-size:14.5px; color:var(--ink-2); line-height:1.5}
 .foot p{margin:0; max-width:70ch}
@@ -214,12 +300,18 @@ button{font:inherit; color:inherit}
 /* ---------- Responsive ---------- */
 @media (max-width: 980px){
   .atlas{display:contents}
-  .mast{order:0} .map-col{order:1} .crono{order:2} .ficha{order:3} .foot{order:4}
+  .mast{order:0} .map-col{order:1} .crono{order:2} .ficha{order:3} .plan{order:4} .lam2{order:5} .foot{order:6}
   .map-col{max-width:720px; width:100%; margin:0 auto}
   .ficha{max-width:720px; width:100%; margin:0 auto}
   .mast{grid-template-columns:minmax(0,1fr)}
   .mast-meta{text-align:left}
   .foot{grid-template-columns:minmax(0,1fr)}
+  .sec-head{grid-template-columns:minmax(0,1fr)}
+  .prog{justify-items:start; text-align:left}
+  .plan-grid{grid-template-columns:minmax(0,1fr)}
+  .idx{grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); align-items:start}
+  .lam-grid{grid-template-columns:minmax(0,1fr)}
+  .plano-wrap{position:static; max-width:620px}
 }
 @media (max-width: 560px){
   body{font-size:16px}
@@ -240,14 +332,14 @@ button{font:inherit; color:inherit}
 <div class="page">
   <header class="mast">
     <div>
-      <p class="kicker">Carta histórica de la República · Lámina única</p>
+      <p class="kicker">Atlas de clase · Historia de Colombia Siglo XX · Licenciatura en Ciencias Sociales</p>
       <h1>Colombia en el Siglo&nbsp;XX <em>1900 — 2000</em></h1>
-      <p class="mast-sub">Treinta y cinco hechos que transformaron el país, ubicados en la carta y ordenados en el tiempo. Elija un hecho en la cronología o en el mapa: los departamentos se colorean tal como existían en ese año.</p>
+      <p class="mast-sub">Carta histórica organizada según el syllabus del curso: cada hecho del mapa pertenece a una sesión de las dieciséis semanas, con su pregunta orientadora, su lectura y preguntas para la discusión en clase. Los departamentos se colorean tal como existían en el año de cada hecho.</p>
     </div>
-    <p class="mast-meta">Long. occ. de Greenwich<br>y del <b>Meridiano de Bogotá</b><br>Observatorio · 74°04′51″ O</p>
+    <p class="mast-meta"><b id="mCount">47 hechos</b> · <b>13 sesiones</b> · <b>3 cortes</b><br>Long. occ. de Greenwich<br>y del <b>Meridiano de Bogotá</b> · 74°04′51″ O</p>
   </header>
 
-  <section class="atlas" aria-label="Mapa y ficha del hecho seleccionado">
+  <section class="atlas" id="atlas" aria-label="Mapa y ficha del hecho seleccionado">
     <div class="map-col">
       <div class="map-wrap">
         <div class="map-frame" id="mapFrame">
@@ -270,17 +362,20 @@ button{font:inherit; color:inherit}
       </div>
       <p class="map-info" id="mapInfo">Pase el cursor o toque un departamento para conocer su historia. Ctrl + rueda, doble clic o los botones acercan el mapa; arrastre para desplazarlo.</p>
       <ul class="legend">
+        <li><span class="sw" style="background:var(--k1); border-radius:50%; width:13px"></span>Corte I</li>
+        <li><span class="sw" style="background:var(--k2); border-radius:50%; width:13px"></span>Corte II</li>
+        <li><span class="sw" style="background:var(--k3); border-radius:50%; width:13px"></span>Corte III</li>
         <li><span class="sw sw-dept"></span>Departamento en ese año</li>
-        <li><span class="sw sw-terr"></span>Territorio nacional (intendencia o comisaría)</li>
-        <li><span class="sw sw-front"></span>Frontera de la República</li>
+        <li><span class="sw sw-terr"></span>Territorio nacional</li>
+        <li><span class="sw sw-front"></span>Frontera</li>
         <li><span class="sw sw-mount"></span>Cordilleras</li>
       </ul>
     </div>
 
     <article class="ficha" id="ficha" aria-live="polite">
       <div class="ficha-top">
-        <span class="ficha-num">Ficha Nº <b id="fNum">1</b> de <span id="fTot">35</span></span>
-        <span class="stamp" id="fStamp">Conflicto</span>
+        <span class="ficha-num">Ficha Nº <b id="fNum">1</b> de <span id="fTot">47</span></span>
+        <span class="stamp" id="fStamp">Semana 1</span>
       </div>
       <div class="ficha-body" id="fBody">
         <p class="ficha-date" id="fDate"></p>
@@ -288,14 +383,19 @@ button{font:inherit; color:inherit}
         <p class="ficha-place"><span id="fPlace"></span> · <span class="coord" id="fCoord"></span></p>
         <p class="ficha-text" id="fText"></p>
         <dl class="ficha-meta">
+          <div><dt>Sesión del curso</dt><dd class="ficha-week" id="fWeek"></dd></div>
           <div><dt>Periodo</dt><dd id="fEra"></dd></div>
           <div><dt>En la presidencia</dt><dd id="fPres"></dd></div>
         </dl>
+        <div class="ficha-qs">
+          <h3>Para la discusión en clase</h3>
+          <ol class="qs" id="fQs"></ol>
+        </div>
         <p class="ficha-same" id="fSame" hidden></p>
       </div>
       <nav class="ficha-nav" aria-label="Recorrer los hechos">
         <button class="btn" id="prev" type="button"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M8 1L3 6l5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Anterior</button>
-        <button class="btn btn-main" id="play" type="button"><svg viewBox="0 0 12 12" aria-hidden="true" id="playIcon"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span id="playLabel">Recorrer el siglo</span></button>
+        <button class="btn btn-main" id="play" type="button"><svg viewBox="0 0 12 12" aria-hidden="true" id="playIcon"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span id="playLabel">Recorrer</span></button>
         <button class="btn" id="next" type="button">Siguiente<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
       </nav>
     </article>
@@ -304,23 +404,70 @@ button{font:inherit; color:inherit}
   <section class="crono" aria-label="Línea de tiempo 1900 a 2000">
     <div class="crono-head">
       <h2>Cronología <small>1900 — 2000</small></h2>
-      <div class="chips" id="chips" role="group" aria-label="Filtrar por tema"></div>
+      <div class="crono-tools">
+        <div class="chips" id="chips" role="group" aria-label="Filtrar por corte del curso"></div>
+        <button class="wpill" id="wPill" type="button" hidden></button>
+        <button class="btn" id="rand" type="button">Pregunta al azar</button>
+      </div>
     </div>
-    <div class="crono-scroll" id="tlScroll"><svg id="tl" height="168" aria-label="Línea de tiempo"></svg></div>
+    <div class="crono-scroll" id="tlScroll"><svg id="tl" height="184" aria-label="Línea de tiempo"></svg></div>
     <p class="crono-hint">Toque un hito para abrir su ficha, o arrastre sobre la regla para ver cómo cambia el mapa año por año. Flechas ← → del teclado para avanzar.</p>
     <div class="tl-tip" id="tlTip" hidden></div>
+  </section>
+
+  <section class="sec plan" id="plan" aria-labelledby="planTitle">
+    <header class="sec-head">
+      <div>
+        <p class="kicker">Programa del curso · 16 semanas</p>
+        <h2 id="planTitle">Sesiones y preguntas para la clase</h2>
+        <p class="sub">Elija una semana para ver su pregunta orientadora, la lectura obligatoria y la estrategia del syllabus. El mapa y la cronología muestran solo los hechos de esa sesión. Marque las preguntas a medida que se discuten: la marca queda guardada en este navegador.</p>
+      </div>
+      <p class="prog"><span><b id="progN">0</b> de <span id="progT">0</span> preguntas discutidas</span><button class="mini" id="resetQ" type="button">Desmarcar todas</button></p>
+    </header>
+    <div class="plan-grid">
+      <nav class="idx" id="idx" aria-label="Semanas del curso"></nav>
+      <article class="ses" id="ses" aria-live="polite"></article>
+    </div>
+  </section>
+
+  <section class="sec lam2" id="centro" aria-labelledby="lamTitle">
+    <header class="sec-head">
+      <div>
+        <p class="kicker">Lámina II · Resultado de aprendizaje 3 del curso</p>
+        <h2 id="lamTitle">El centro de Bogotá como fuente</h2>
+        <p class="sub">Cinco lugares del centro histórico donde ocurrieron hechos del siglo XX, pensados para una salida de campo. Cada parada enlaza con las fichas del mapa y trae una pregunta para hacer en el lugar.</p>
+      </div>
+    </header>
+    <div class="lam-grid">
+      <div class="plano-wrap"><svg id="plano" viewBox="0 0 420 392" role="img" aria-label="Plano esquemático del centro de Bogotá con cinco paradas"></svg></div>
+      <ol class="stops" id="stops"></ol>
+    </div>
   </section>
 
   <footer class="foot">
     <div>
       <h3>Sobre esta carta</h3>
-      <p>Cartografía base de Natural Earth (dominio público). Los departamentos se dibujan con sus límites actuales: cada uno aparece coloreado desde el año en que obtuvo la categoría de departamento; antes, lleva el color del departamento del que formaba parte o la trama de territorio nacional. Es una simplificación: omite, por ejemplo, la reorganización transitoria de 1908–1910.</p>
+      <p>Cartografía base de Natural Earth (dominio público). Los departamentos se dibujan con sus límites actuales: cada uno aparece coloreado desde el año en que obtuvo la categoría de departamento; antes, lleva el color del departamento del que formaba parte o la trama de territorio nacional. Es una simplificación: omite, por ejemplo, la reorganización transitoria de 1908–1910. El plano del centro de Bogotá es esquemático y no está a escala.</p>
     </div>
     <div>
-      <h3>Fechas y cifras</h3>
-      <p>Las fechas corresponden al día del hecho o, cuando se indica solo el mes o el año, a la fecha de referencia más citada. Las cifras de víctimas de la Guerra de los Mil Días, de las Bananeras o de La Violencia siguen en discusión entre historiadores; aquí se dan como órdenes de magnitud.</p>
+      <h3>Sobre el syllabus y las cifras</h3>
+      <p>Las sesiones, preguntas orientadoras, lecturas y estrategias provienen del syllabus del curso. En las semanas 9, 13 y 14 el syllabus deja la pregunta incompleta o en blanco; allí se propone una formulación, marcada como tal. Las cifras de víctimas de la Guerra de los Mil Días, de las Bananeras o de La Violencia siguen en discusión entre historiadores y se dan como órdenes de magnitud.</p>
     </div>
   </footer>
+</div>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mQ">
+  <div class="modal-card" id="mCard">
+    <p class="modal-k" id="mK">Pregunta al azar</p>
+    <p class="modal-q" id="mQ"></p>
+    <p class="modal-src" id="mSrc"></p>
+    <div class="modal-actions">
+      <button class="btn btn-main" id="mNext" type="button">Otra pregunta</button>
+      <button class="btn" id="mDone" type="button">Marcar como discutida</button>
+      <button class="btn" id="mGo" type="button">Ver en el mapa</button>
+      <button class="btn" id="mClose" type="button">Cerrar</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -333,91 +480,290 @@ const $ = id => document.getElementById(id);
 const proj = (lat, lon) => [(lon - GEO.lon0) * K, (GEO.lat1 - lat) * K];
 function el(tag, attrs, parent){ const e = document.createElementNS(NS, tag); if (attrs) for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
 function txt(parent, x, y, s, cls, extra){ const t = el('text', Object.assign({x: x.toFixed(1), y: y.toFixed(1), class: cls}, extra || {}), parent); t.textContent = s; return t; }
+function h(tag, attrs, kids){ const e = document.createElement(tag); if (attrs) for (const k in attrs){ if (k === 'text') e.textContent = attrs[k]; else if (k === 'html') e.innerHTML = attrs[k]; else if (k.startsWith('on')) e[k] = attrs[k]; else e.setAttribute(k, attrs[k]); } (kids || []).forEach(c => c && e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c)); return e; }
 
-/* ======================= Datos ======================= */
-const CATS = {
-  pol:{n:'Política e instituciones', s:'Política'},
-  con:{n:'Conflicto y violencia', s:'Conflicto'},
-  ter:{n:'Territorio y fronteras', s:'Territorio'},
-  eco:{n:'Economía y transporte', s:'Economía'},
-  cul:{n:'Sociedad y cultura', s:'Cultura'},
-  nat:{n:'Tragedias naturales', s:'Tragedia'}
+/* ======================= Syllabus ======================= */
+const CORTES = {
+  1:{n:'Corte I', r:'Semanas 1–5', p:'30 %'},
+  2:{n:'Corte II', r:'Semanas 6–11', p:'30 %'},
+  3:{n:'Corte III', r:'Semanas 12–16', p:'40 %'}
 };
-const BOG = [4.598, -74.076];
+const corteOf = w => w <= 5 ? 1 : w <= 11 ? 2 : 3;
+const ROMAN = {1:'I', 2:'II', 3:'III'};
+const TAGS = {act:'Para abrir', arg:'Argumentar', com:'Comparar', fue:'Fuentes', nar:'Narrativas', ens:'Enseñar', ter:'Territorio', lug:'En el lugar'};
+
+/* q: pregunta orientadora del syllabus. nota: cuando el syllabus la deja incompleta. */
+const WEEKS = [
+ {w:1, eje:'Del siglo XIX al siglo XX', q:'Análisis histórico del paso del siglo XIX al siglo XX.', st:'Ejercicio de introducción sobre los ejes temáticos', lec:'Bushnell, D. (1996). Colombia, una nación a pesar de sí misma.',
+  qs:[['act','¿Qué herencias del siglo XIX (la Constitución de 1886, los partidos, las guerras civiles) siguen vivas en 1900? Cada estudiante nombra una y explica por qué.'],
+      ['arg','Bushnell titula su libro «una nación a pesar de sí misma». ¿Qué quiere decir con eso y qué hechos del mapa lo respaldan o lo contradicen?'],
+      ['ens','Si tuviera una sola clase en un colegio para explicar el paso del siglo XIX al XX, ¿qué tres hechos escogería y por qué?']]},
+ {w:2, eje:'La agricultura y el café', q:'¿Cuáles fueron los límites y alcances económicos del café?', st:'Debate sobre los argumentos de la obra', lec:'Ocampo, J. A. (1987). Una breve historia cafetera de Colombia, 1830-1958, pp. 59–80.',
+  qs:[['act','Antes de leer: ¿dónde se cultiva el café, quién lo trabaja y quién se queda con la ganancia? Anoten sus supuestos para revisarlos al final.'],
+      ['arg','Según Ocampo, ¿el café integró el mercado nacional o profundizó las diferencias entre regiones? Tome posición y defiéndala con un dato de la lectura.'],
+      ['ens','Diseñe una actividad que use una taza de café como fuente: ¿qué historia del siglo XX puede contarse desde ella?']]},
+ {w:3, eje:'La industria', q:'¿Cómo se aplicó el modelo de sustitución de importaciones en Colombia?', st:'IDRISKA (modelo de análisis de texto)', lec:'Kalmanovitz, S. (1983). Los orígenes de la industrialización en Colombia (1890-1929).',
+  qs:[['act','Revise la etiqueta de tres productos que tenga a mano. ¿Dónde se fabricaron? ¿Qué dice eso de la industria nacional hoy?'],
+      ['arg','¿Por qué la industria se concentró en Medellín, Bogotá, Cali y Barranquilla? Use el mapa y la lectura de Kalmanovitz.'],
+      ['ens','Aplique la primera letra de IDRISKA a un párrafo de Kalmanovitz: ¿qué términos no conocerían sus futuros estudiantes y cómo los definiría?']]},
+ {w:4, eje:'Modernidad sin modernización', q:'¿Utopía o realidad, la modernidad en Colombia?', st:'Construcción de mentefactos', lec:'Palacios, M. (2003). Entre la legitimidad y la violencia 1875-1997, cap. 6, «Grandes transformaciones dentro de la continuidad», pp. 289–308.',
+  qs:[['act','¿Qué entendemos por modernidad y qué por modernización? Construyan en grupo un mentefacto con los dos conceptos.'],
+      ['arg','Palacios habla de grandes transformaciones dentro de la continuidad. ¿Qué cambió en Colombia entre 1910 y 1950 y qué siguió igual?'],
+      ['ens','Escoja un objeto del mapa (un hidroavión, un billete, una novela) y prepare una miniclase sobre la tensión entre modernidad y atraso.']]},
+ {w:5, parcial:true},
+ {w:6, eje:'Movimiento campesino', q:'¿Cómo las formas de tenencia de la tierra impactaron el conflicto armado colombiano?', st:'Debate sobre los argumentos de la obra', lec:'LeGrand, C. (1988). Colonization and Peasant Protest 1850-1936, pp. 93–122.',
+  qs:[['act','¿Quién era dueño de la tierra donde vivieron sus abuelos o bisabuelos? Comparta lo que sepa de la historia agraria de su familia.'],
+      ['arg','Construya una cadena causal con al menos tres hechos del mapa que una la tenencia de la tierra con el conflicto armado. ¿Dónde se rompe o se debilita la cadena?'],
+      ['ens','¿Cómo enseñar el problema de la tierra en un aula donde puede haber hijos de colonos, de víctimas y de propietarios?']]},
+ {w:7, eje:'Movimiento obrero', q:'¿Cuáles fueron los inicios del movimiento obrero en Colombia?', st:'IDRISKA (modelo de análisis de texto)', lec:'Archila, M. (1991). Cultura e identidad obrera. Colombia 1910-1945.',
+  qs:[['act','¿Qué derechos laborales da por sentados (jornada máxima, vacaciones, sindicato)? ¿Sabe cuándo y cómo se conquistaron?'],
+      ['arg','Archila estudia la cultura obrera y no solo las huelgas. ¿Qué prácticas cotidianas (prensa, fiestas, asociaciones) formaron una identidad obrera?'],
+      ['ens','Organice en un cuadro las protestas de 1919, 1924 y 1928: causas, actores, respuesta del Estado. ¿Qué patrón aparece?']]},
+ {w:8, eje:'La democracia y sus limitaciones', q:'¿En Colombia funciona el sistema democrático liberal?', st:'Construcción de mentefactos', lec:'Gutiérrez Sanín, F. El orangután con sacoleva: cien años de democracia y represión en Colombia (1910-2010), pp. 86–103.',
+  qs:[['act','¿Qué condiciones mínimas debe cumplir un país para llamarse democrático? Hagan una lista en grupo.'],
+      ['arg','Gutiérrez Sanín describe un «orangután con sacoleva»: instituciones civiles con prácticas represivas. ¿Funciona en Colombia el sistema democrático liberal? Responda con tres hechos del mapa.'],
+      ['ens','Elabore un mentefacto sobre «democracia restringida» que pueda usar con estudiantes de grado once.']]},
+ {w:9, eje:'La Violencia', q:'¿Cuáles son los períodos de La Violencia?', nota:'El syllabus deja incompleta esta pregunta («¿Cuáles son los períodos de…»); se completa con el tema de la sesión.', st:'IDRISKA (modelo de análisis de texto)', lec:'Pécaut, D. (2001). Orden y violencia.',
+  qs:[['act','¿Qué sabe de La Violencia por su familia o su región? Comparta un relato breve, sin juzgarlo todavía.'],
+      ['arg','Compare la periodización de Pécaut con otra que conozca. ¿Dónde empieza y dónde termina La Violencia, y qué cambia según la fecha que se escoja?'],
+      ['ens','¿Cómo explicar la violencia bipartidista a estudiantes que hoy no se identifican con los partidos Liberal y Conservador?']]},
+ {w:10, parcial:true},
+ {w:11, eje:'Movimientos sociales, Estado y democracia', q:'¿Cuál es la relación entre los movimientos sociales y la modernización del Estado?', st:'Debate sobre los argumentos de la obra', lec:'Archila, M. (2001). Vida y pasión de los movimientos sociales en Colombia, pp. 4–46.',
+  qs:[['act','Nombre un movimiento social actual. ¿Qué exige, a quién se dirige y cómo protesta?'],
+      ['arg','¿Los movimientos sociales empujaron la modernización del Estado o el Estado los contuvo y cooptó? Debata con ejemplos de estudiantes, indígenas y trabajadores.'],
+      ['ens','Construya con sus estudiantes una línea de tiempo de la protesta social del siglo XX. ¿Qué actores aparecen en cada década?']]},
+ {w:12, eje:'Frente Nacional y violencia', q:'¿Cómo se explica el surgimiento del movimiento guerrillero en Colombia?', st:'Debate sobre los argumentos de la obra', lec:'Tirado, Á. Del Frente Nacional al momento actual: diagnóstico de una crisis. En Nueva Historia de Colombia, tomo II.',
+  qs:[['act','¿Por qué alguien decide tomar las armas? Escriba tres razones posibles antes de leer a Tirado.'],
+      ['arg','Pondere tres explicaciones del surgimiento guerrillero: la exclusión política del Frente Nacional, el problema agrario y la influencia de la Revolución cubana. ¿Cuál pesa más?'],
+      ['ens','¿Cómo enseñar el origen de las guerrillas sin justificar la violencia ni reducirla a la palabra «terrorismo»?']]},
+ {w:13, eje:'Violencia en el cuerpo social: las mujeres en la guerra', q:'¿Qué lugar han ocupado las mujeres en la guerra, como combatientes, víctimas y constructoras de paz?', nota:'El syllabus deja esta pregunta en blanco («¿?»); se propone una formulación a partir del título de la sesión.', st:'IDRISKA (modelo de análisis de texto)', lec:'Vásquez Perdomo, M. E. (2000). Escrito para no morir: bitácora de una militancia, pp. 413–441.',
+  qs:[['act','Nombre mujeres de la historia de Colombia del siglo XX que recuerde. ¿Cuántas aparecían en sus textos escolares?'],
+      ['arg','A partir del texto de Vásquez Perdomo: ¿la militancia cambió las relaciones de género o las reprodujo dentro de la organización armada?'],
+      ['ens','Proponga una historia biográfica de una mujer del siglo XX (María Cano, una sufragista, una militante, una lideresa campesina) para trabajar en el colegio.']]},
+ {w:14, eje:'Frontera y Estado nacional', q:'¿Cuáles fueron las relaciones entre el Estado nacional y sus territorios de frontera?', nota:'El syllabus deja incompleta esta pregunta («¿Cuáles fueron las…»); se propone una formulación a partir del título de la sesión.', st:'Construcción de… (incompleto en el syllabus)', lec:'Serje, M. (2005). El revés de la nación: territorios salvajes, fronteras y tierras de nadie.',
+  qs:[['act','Señale en el mapa los antiguos territorios nacionales (la trama rayada). ¿Ha estado en alguno? ¿Qué imagen tiene de ellos?'],
+      ['arg','Serje habla del «revés de la nación». ¿Cómo ha mirado el Estado central sus fronteras: como territorios por civilizar, por defender o por explotar?'],
+      ['ens','¿Cómo cambiaría su clase de geografía si el mapa se leyera desde la Amazonía o San Andrés y no desde Bogotá?']]},
+ {w:15, eje:'La seguridad como mecanismo de violencia perpetua', q:'¿Por qué se genera la violencia urbana en Colombia?', st:'Debate sobre los argumentos de la obra', lec:'Leal Buitrago, F. (2006). La inseguridad de la seguridad: Colombia 1958-2005.',
+  qs:[['act','¿Qué significa para usted sentirse seguro en la ciudad? ¿Quién debe garantizarlo?'],
+      ['arg','Discuta la tesis de la sesión: ¿por qué las políticas de seguridad, desde 1958, no han acabado con la violencia y a veces la han reproducido?'],
+      ['ens','Diseñe un debate de aula sobre seguridad y derechos humanos que incluya el Estatuto de Seguridad de 1978 y el Plan Colombia.']]},
+ {w:16, parcial:true}
+];
+const WK = {}; WEEKS.forEach(x => WK[x.w] = x);
+
+/* ======================= Hechos ======================= */
+const BOG = [4.598, -74.076], SEPT = [4.6013, -74.0737], MED = [6.244, -75.581], LET = [-4.215, -69.94], BCA = [7.065, -73.854];
 const EVENTS = [
- {id:'1902-neerlandia', d:'1902-10-24', f:'24 de octubre de 1902', c:'con', ti:'Fin de la Guerra de los Mil Días', lu:'Hacienda Neerlandia, cerca de Ciénaga (Magdalena)', p:[10.93,-74.21],
-  tx:'En la hacienda Neerlandia, el general liberal Rafael Uribe Uribe firmó la capitulación que cerró la guerra civil más larga del país, iniciada en octubre de 1899. Los tratados de Wisconsin, firmado el 21 de noviembre en la bahía de Panamá, y de Chinácota acabaron con los últimos frentes. Las cifras de muertos, siempre discutidas, van de decenas de miles a cerca de cien mil.'},
- {id:'1903-panama', d:'1903-11-03', f:'3 de noviembre de 1903', c:'ter', ti:'Separación de Panamá', lu:'Ciudad de Panamá', p:[8.98,-79.52],
-  tx:'Meses después de que el Senado colombiano rechazara el Tratado Herrán–Hay sobre el canal interoceánico, una junta separatista proclamó la independencia del istmo con el respaldo de Estados Unidos, cuyos buques impidieron el paso de tropas colombianas. Quince días más tarde, el Tratado Hay–Bunau-Varilla entregó a Washington la zona del canal.'},
- {id:'1905-caldas', d:'1905-04-11', f:'11 de abril de 1905', c:'ter', ti:'Reyes redibuja el mapa: nace Caldas', lu:'Manizales (Caldas)', p:[5.07,-75.52],
-  tx:'Durante el Quinquenio de Rafael Reyes (1904–1909) se fragmentaron los grandes departamentos heredados de la Constitución de 1886. Entre 1904 y 1905 nacieron Nariño, Caldas, Huila y Atlántico, y en 1910 se sumaron Valle del Cauca y Norte de Santander. Caldas, con capital en Manizales, se convertiría en el corazón de la zona cafetera.'},
- {id:'1910-reforma', d:'1910-10-31', f:'31 de octubre de 1910', c:'pol', ti:'Reforma constitucional del Centenario', lu:'Bogotá', p:BOG,
-  tx:'En el año del primer centenario de la Independencia, la Asamblea Nacional reformó la Constitución de 1886. Fijó el periodo presidencial en cuatro años, prohibió la reelección inmediata, abolió la pena de muerte y creó la acción pública de inconstitucionalidad ante la Corte Suprema. Ese año asumió la presidencia Carlos E. Restrepo, del movimiento Republicano.'},
- {id:'1914-urrutia-thomson', d:'1914-04-06', f:'6 de abril de 1914', c:'ter', ti:'Tratado Urrutia–Thomson', lu:'Bogotá', p:BOG,
-  tx:'Colombia y Estados Unidos firmaron en Bogotá un acuerdo para cerrar la herida de Panamá: Washington pagaría 25 millones de dólares y Colombia tendría privilegios en el canal, que se inauguró en agosto de ese año. El Senado estadounidense lo ratificó en 1921, después de eliminar la frase de «sincero pesar», y Colombia reconoció entonces la independencia panameña.'},
- {id:'1919-scadta', d:'1919-12-05', f:'5 de diciembre de 1919', c:'eco', ti:'Nace SCADTA, pionera de la aviación', lu:'Barranquilla (Atlántico)', p:[10.964,-74.796],
-  tx:'Empresarios colombianos y alemanes fundaron la Sociedad Colombo-Alemana de Transportes Aéreos, considerada la primera aerolínea comercial de América. Sus hidroaviones remontaban el río Magdalena y reducían a horas viajes que tomaban semanas. En 1940 se fusionó con el Servicio Aéreo Colombiano y dio origen a Avianca.'},
- {id:'1922-salomon-lozano', d:'1922-03-24', f:'24 de marzo de 1922', c:'ter', ti:'Tratado Salomón–Lozano', lu:'Leticia (Amazonas)', p:[-4.215,-69.94],
-  tx:'Colombia y Perú fijaron en Lima su frontera amazónica. Perú reconoció como colombianos los territorios al norte del río Putumayo y el trapecio amazónico, con el puerto de Leticia, que dio al país su salida al río Amazonas; Colombia renunció a sus reclamaciones al sur del Putumayo. La entrega de Leticia se hizo efectiva en 1930.'},
- {id:'1923-banco-republica', d:'1923-07', f:'julio de 1923', c:'eco', ti:'Se funda el Banco de la República', lu:'Bogotá', p:BOG,
-  tx:'Siguiendo las recomendaciones de la misión del economista estadounidense Edwin Kemmerer, Colombia creó su banco central, con el monopolio de la emisión de billetes. La misma misión dio origen a la Contraloría General y a la Superintendencia Bancaria. Coincidió con la llegada de la indemnización por Panamá, que alimentó la «danza de los millones» de los años veinte.'},
- {id:'1927-cafeteros', d:'1927-06-27', f:'27 de junio de 1927', c:'eco', ti:'Nace la Federación Nacional de Cafeteros', lu:'Medellín (Antioquia)', p:[6.244,-75.581],
-  tx:'Productores reunidos en Medellín crearon la Federación para organizar la compra, la calidad y la exportación del grano, que ya era el principal producto de exportación del país. El café financió vías y ferrocarriles, impulsó la colonización de las laderas andinas y moldeó durante décadas la economía y la identidad nacional.'},
- {id:'1928-esguerra-barcenas', d:'1928-03-24', f:'24 de marzo de 1928', c:'ter', ti:'Tratado Esguerra–Bárcenas', lu:'San Andrés', p:[12.58,-81.70],
-  tx:'Firmado en Managua, el tratado reconoció la soberanía de Colombia sobre el archipiélago de San Andrés, Providencia y Santa Catalina, y la de Nicaragua sobre la costa de Mosquitos y las islas del Maíz. Al ratificarse en 1930 se tomó el meridiano 82 como referencia, un punto que Nicaragua impugnaría medio siglo después.'},
- {id:'1928-bananeras', d:'1928-12-06', f:'6 de diciembre de 1928', c:'con', ti:'Masacre de las Bananeras', lu:'Ciénaga (Magdalena)', p:[11.006,-74.247],
-  tx:'Tras casi cuatro semanas de huelga de los trabajadores de la United Fruit Company, el ejército disparó en la madrugada contra la multitud reunida en la plaza de la estación de Ciénaga. El número de muertos sigue en disputa. El debate que Jorge Eliécer Gaitán llevó al Congreso en 1929 y las páginas de «Cien años de soledad» la fijaron en la memoria nacional.'},
- {id:'1930-olaya', d:'1930-02-09', f:'9 de febrero de 1930', c:'pol', ti:'Fin de la Hegemonía Conservadora', lu:'Bogotá', p:BOG,
-  tx:'La división del Partido Conservador y el desgaste tras la masacre de las bananeras permitieron el triunfo electoral del liberal Enrique Olaya Herrera. Terminaban 44 años de gobiernos conservadores (1886–1930) y comenzaba la llamada República Liberal, que se extendería hasta 1946.'},
- {id:'1932-leticia', d:'1932-09-01', f:'1 de septiembre de 1932', c:'ter', ti:'Conflicto con el Perú por Leticia', lu:'Leticia (Amazonas)', p:[-4.215,-69.94],
-  tx:'Un grupo de civiles y militares peruanos ocupó Leticia y desató la guerra colombo-peruana. Colombia armó una flotilla que remontó el Amazonas y combatió en Tarapacá y Güepí en 1933. Tras la mediación de la Sociedad de Naciones, el Protocolo de Río de Janeiro (1934) ratificó la soberanía colombiana sobre el trapecio amazónico.'},
- {id:'1936-revolucion-en-marcha', d:'1936-08', f:'agosto de 1936', c:'pol', ti:'La Revolución en Marcha', lu:'Bogotá', p:BOG,
-  tx:'Bajo el primer gobierno de Alfonso López Pumarejo, una reforma constitucional introdujo la función social de la propiedad, la intervención del Estado en la economía, el derecho de huelga y el sufragio universal masculino, y garantizó la libertad de conciencia y de enseñanza. Ese mismo año, la Ley 200 reguló la propiedad de la tierra.'},
- {id:'1948-bogotazo', d:'1948-04-09', f:'9 de abril de 1948', c:'con', ti:'El Bogotazo', lu:'Bogotá', p:BOG,
-  tx:'El asesinato del caudillo liberal Jorge Eliécer Gaitán en la carrera Séptima desató una revuelta que destruyó buena parte del centro de Bogotá y se extendió a otras ciudades. Ocurrió en plena IX Conferencia Panamericana, de la que nacería la OEA. El crimen agudizó La Violencia bipartidista, que entre 1946 y 1958 dejó cerca de 200.000 muertos.'},
- {id:'1951-vuelta', d:'1951-01-05', f:'5 de enero de 1951', c:'cul', ti:'Primera Vuelta a Colombia en bicicleta', lu:'Bogotá', p:BOG,
-  tx:'La primera Vuelta a Colombia partió de Bogotá por carreteras en su mayoría sin pavimentar. La ganó Efraín Forero, «el Indomable Zipa», y las transmisiones radiales convirtieron el ciclismo en una pasión popular. Décadas después, Luis «Lucho» Herrera ganaría la Vuelta a España de 1987.'},
- {id:'1951-ecopetrol', d:'1951-08-25', f:'25 de agosto de 1951', c:'eco', ti:'Reversión de la Concesión De Mares', lu:'Barrancabermeja (Santander)', p:[7.065,-73.854],
-  tx:'Al vencer la concesión explotada por la Tropical Oil Company, los campos petroleros de Barrancabermeja pasaron a la Nación y nació la Empresa Colombiana de Petróleos, Ecopetrol. La concesión se había otorgado en 1905 y el primer pozo productivo brotó en 1918. El puerto fue también cuna del movimiento obrero, con las huelgas petroleras de 1924 y 1927.'},
- {id:'1953-rojas', d:'1953-06-13', f:'13 de junio de 1953', c:'pol', ti:'Golpe de Rojas Pinilla', lu:'Bogotá', p:BOG,
-  tx:'En medio de La Violencia, el general Gustavo Rojas Pinilla tomó el poder con el apoyo de buena parte de ambos partidos. Su gobierno amnistió a las guerrillas liberales del Llano, aprobó el voto femenino (1954) e inauguró la televisión, pero la censura y la represión le restaron apoyo. Cayó en mayo de 1957, tras un paro nacional, y entregó el poder a una Junta Militar.'},
- {id:'1957-plebiscito', d:'1957-12-01', f:'1 de diciembre de 1957', c:'pol', ti:'Plebiscito: nace el Frente Nacional', lu:'Bogotá', p:BOG,
-  tx:'Por primera vez votaron las mujeres en una consulta nacional, y el «sí» ganó por amplia mayoría. El plebiscito estableció la paridad entre liberales y conservadores en los cargos públicos; una reforma de 1959 añadió la alternancia en la presidencia hasta 1974. El pacto frenó la violencia bipartidista, pero cerró el sistema político a otras fuerzas.'},
- {id:'1964-marquetalia', d:'1964-05-27', f:'27 de mayo de 1964', c:'con', ti:'Operación Marquetalia', lu:'Marquetalia, Planadas (Tolima)', p:[3.15,-75.89],
-  tx:'El ejército atacó la llamada «república independiente» de Marquetalia, en el sur del Tolima, donde se refugiaban núcleos de autodefensa campesina de origen liberal y comunista. Los sobrevivientes, liderados por Manuel Marulanda, formaron el Bloque Sur, que en 1966 adoptó el nombre de Fuerzas Armadas Revolucionarias de Colombia (FARC).'},
- {id:'1965-simacota', d:'1965-01-07', f:'7 de enero de 1965', c:'con', ti:'El ELN se toma Simacota', lu:'Simacota (Santander)', p:[6.443,-73.337],
-  tx:'Un grupo guerrillero inspirado en la Revolución cubana se dio a conocer con la toma de este pueblo santandereano: era el Ejército de Liberación Nacional, fundado en julio de 1964. Al año siguiente se unió a sus filas el sacerdote Camilo Torres, que murió en su primer combate, en febrero de 1966.'},
- {id:'1968-vallenato', d:'1968-04', f:'abril de 1968', c:'cul', ti:'Primer Festival de la Leyenda Vallenata', lu:'Valledupar (Cesar)', p:[10.463,-73.253],
-  tx:'Consuelo Araujonoguera, Alfonso López Michelsen y el compositor Rafael Escalona organizaron en Valledupar un concurso de acordeoneros que coronó a Alejandro Durán como primer rey vallenato. El festival sacó la música de acordeón de las provincias del Caribe y la convirtió en emblema nacional.'},
- {id:'1970-elecciones', d:'1970-04-19', f:'19 de abril de 1970', c:'pol', ti:'Las elecciones del 19 de abril', lu:'Bogotá', p:BOG,
-  tx:'Misael Pastrana, último candidato del Frente Nacional, fue declarado ganador por estrecho margen sobre el exdictador Gustavo Rojas Pinilla, en medio de denuncias de fraude. De esa frustración nació el Movimiento 19 de Abril (M-19), que en enero de 1974 se dio a conocer robando la espada de Bolívar de la Quinta de Bolívar, en Bogotá.'},
- {id:'1982-nobel', d:'1982-12-10', f:'10 de diciembre de 1982', c:'cul', ti:'Nobel de Literatura para García Márquez', lu:'Aracataca (Magdalena)', p:[10.591,-74.19],
-  tx:'Gabriel García Márquez, nacido en Aracataca en 1927, recibió en Estocolmo el Premio Nobel de Literatura. «Cien años de soledad» (1967), ambientada en el pueblo imaginario de Macondo, había llevado la literatura colombiana y el realismo mágico a todo el mundo. Su discurso de aceptación se tituló «La soledad de América Latina».'},
- {id:'1983-cano-limon', d:'1983-07', f:'1983', c:'eco', ti:'Descubrimiento de Caño Limón', lu:'Caño Limón (Arauca)', p:[6.95,-71.12],
-  tx:'La estadounidense Occidental Petroleum halló en Arauca el mayor yacimiento de petróleo descubierto hasta entonces en el país. Con el oleoducto Caño Limón–Coveñas, en operación desde 1986, Colombia volvió a ser exportador de crudo; la tubería se convirtió también en blanco frecuente de atentados guerrilleros.'},
- {id:'1985-palacio', d:'1985-11-06', f:'6 de noviembre de 1985', c:'con', ti:'Toma del Palacio de Justicia', lu:'Plaza de Bolívar, Bogotá', p:BOG,
-  tx:'Un comando del M-19 se tomó la sede de la Corte Suprema y del Consejo de Estado. La retoma militar, con tanques y un incendio que consumió el edificio y sus archivos, dejó cerca de un centenar de muertos, entre ellos once magistrados de la Corte, y varios desaparecidos cuyo paradero se investigó durante décadas.'},
- {id:'1985-armero', d:'1985-11-13', f:'13 de noviembre de 1985', c:'nat', ti:'Tragedia de Armero', lu:'Armero (Tolima)', p:[4.963,-74.905],
-  tx:'Una erupción del Nevado del Ruiz derritió parte de su glaciar y lanzó avalanchas de lodo que sepultaron Armero, en el norte del Tolima. Murieron más de 20.000 de sus cerca de 29.000 habitantes, y la agonía de la niña Omayra Sánchez dio la vuelta al mundo. Las alertas de los vulcanólogos no se atendieron a tiempo.'},
- {id:'1989-galan', d:'1989-08-18', f:'18 de agosto de 1989', c:'con', ti:'Asesinato de Luis Carlos Galán', lu:'Soacha (Cundinamarca)', p:[4.579,-74.217],
-  tx:'El candidato presidencial liberal, favorito para 1990 y enemigo declarado de los carteles, fue asesinado durante una manifestación en la plaza de Soacha. En los meses siguientes, el cartel de Medellín voló en pleno vuelo un avión de Avianca y el edificio del DAS en Bogotá. Fue el punto más alto del narcoterrorismo.'},
- {id:'1991-constitucion', d:'1991-07-04', f:'4 de julio de 1991', c:'pol', ti:'Constitución Política de 1991', lu:'Bogotá', p:BOG,
-  tx:'Impulsada por el movimiento estudiantil de la «séptima papeleta» y tras la desmovilización del M-19, una Asamblea Nacional Constituyente con exguerrilleros, indígenas y nuevos partidos reemplazó la Constitución de 1886. La nueva carta definió a Colombia como Estado social de derecho, creó la tutela, la Corte Constitucional y la Fiscalía, y convirtió en departamentos las antiguas intendencias y comisarías.'},
- {id:'1993-escobar', d:'1993-12-02', f:'2 de diciembre de 1993', c:'con', ti:'Muerte de Pablo Escobar', lu:'Medellín (Antioquia)', p:[6.244,-75.581],
-  tx:'Dieciséis meses después de fugarse de la cárcel de La Catedral, el jefe del cartel de Medellín murió abatido sobre un tejado del barrio Los Olivos, acorralado por el Bloque de Búsqueda. Su caída no acabó con el narcotráfico; el cartel de Cali y otras organizaciones ocuparon su lugar.'},
- {id:'1994-proceso-8000', d:'1994-06', f:'junio de 1994', c:'pol', ti:'Los narcocasetes y el Proceso 8.000', lu:'Cali (Valle del Cauca)', p:[3.452,-76.532],
-  tx:'Grabaciones reveladas tras la segunda vuelta presidencial mostraron que el cartel de Cali había ofrecido dinero a la campaña de Ernesto Samper. La investigación judicial, conocida como Proceso 8.000, llevó a la cárcel a su exministro de Defensa y a varios congresistas. La Cámara absolvió a Samper en 1996, pero Estados Unidos le retiró la visa y descertificó al país.'},
- {id:'1997-mapiripan', d:'1997-07-15', f:'15 de julio de 1997', c:'con', ti:'Masacre de Mapiripán', lu:'Mapiripán (Meta)', p:[2.891,-72.133],
-  tx:'Durante cinco días, paramilitares llegados en vuelos desde Urabá torturaron y asesinaron a pobladores de este municipio a orillas del río Guaviare. En 2005, la Corte Interamericana de Derechos Humanos condenó al Estado colombiano por la colaboración de miembros del ejército. Pocos meses antes de la masacre se habían agrupado las Autodefensas Unidas de Colombia (AUC).'},
- {id:'1998-caguan', d:'1998-11-07', f:'7 de noviembre de 1998', c:'con', ti:'Zona de distensión del Caguán', lu:'San Vicente del Caguán (Caquetá)', p:[2.115,-74.77],
-  tx:'El presidente Andrés Pastrana retiró la fuerza pública de 42.000 km² en cinco municipios de Meta y Caquetá para negociar con las FARC. Los diálogos se rompieron en febrero de 2002 sin acuerdos, mientras la guerrilla alcanzaba su mayor tamaño.'},
- {id:'1999-terremoto', d:'1999-01-25', f:'25 de enero de 1999', c:'nat', ti:'Terremoto del Eje Cafetero', lu:'Armenia (Quindío)', p:[4.534,-75.681],
-  tx:'Un sismo de magnitud 6,2, con epicentro cerca de Córdoba (Quindío), destruyó buena parte de Armenia y afectó a Pereira y a decenas de municipios cafeteros. Murieron cerca de 1.200 personas y miles de familias perdieron su vivienda; la reconstrucción estuvo a cargo del Forec.'},
- {id:'2000-plan-colombia', d:'2000-07-13', f:'13 de julio de 2000', c:'con', ti:'Plan Colombia', lu:'Puerto Asís (Putumayo)', p:[0.505,-76.495],
-  tx:'Estados Unidos aprobó un paquete de ayuda de unos 1.300 millones de dólares, en su mayor parte militar, para combatir el narcotráfico y fortalecer a las fuerzas armadas. Su primera fase se concentró en el Putumayo, entonces la mayor zona de cultivos de coca del país, con fumigaciones aéreas masivas.'}
+ {id:'1902-neerlandia', d:'1902-10-24', f:'24 de octubre de 1902', w:1, ws:[], ti:'Fin de la Guerra de los Mil Días', lu:'Hacienda Neerlandia, cerca de Ciénaga (Magdalena)', p:[10.93,-74.21],
+  tx:'En la hacienda Neerlandia, el general liberal Rafael Uribe Uribe firmó la capitulación que cerró la guerra civil más larga del país, iniciada en octubre de 1899. Los tratados de Wisconsin, firmado el 21 de noviembre en la bahía de Panamá, y de Chinácota acabaron con los últimos frentes. Las cifras de muertos, siempre discutidas, van de decenas de miles a cerca de cien mil.',
+  qs:[['com','Bushnell presenta esta guerra como el cierre del siglo XIX. ¿Qué continuidades y qué rupturas hay entre ella y la violencia partidista de mediados del siglo XX?'],
+      ['fue','Los tratados los firmaron generales. ¿Qué voces faltan en esos documentos y en qué otras fuentes buscaría la experiencia de soldados y civiles?']]},
+ {id:'1903-panama', d:'1903-11-03', f:'3 de noviembre de 1903', w:1, ws:[14], ti:'Separación de Panamá', lu:'Ciudad de Panamá', p:[8.98,-79.52],
+  tx:'Meses después de que el Senado colombiano rechazara el Tratado Herrán–Hay sobre el canal interoceánico, una junta separatista proclamó la independencia del istmo con el respaldo de Estados Unidos, cuyos buques impidieron el paso de tropas colombianas. Quince días más tarde, el Tratado Hay–Bunau-Varilla entregó a Washington la zona del canal.',
+  qs:[['nar','Muchos textos escolares cuentan la separación solo como un despojo de Estados Unidos. ¿Qué factores internos, como el centralismo, la guerra o el abandono del istmo, quedan por fuera de esa versión?'],
+      ['ter','Compare el mapa antes y después del 3 de noviembre de 1903. ¿Qué cambió para Colombia en comercio, fronteras y lugar en el continente?']]},
+ {id:'1905-caldas', d:'1905-04-11', f:'11 de abril de 1905', w:1, ws:[2,14], ti:'Reyes redibuja el mapa: nace Caldas', lu:'Manizales (Caldas)', p:[5.07,-75.52],
+  tx:'Durante el Quinquenio de Rafael Reyes (1904–1909) se fragmentaron los grandes departamentos heredados de la Constitución de 1886. Entre 1904 y 1905 nacieron Nariño, Caldas, Huila y Atlántico, y en 1910 se sumaron Valle del Cauca y Norte de Santander. Caldas, con capital en Manizales, se convertiría en el corazón de la zona cafetera.',
+  qs:[['arg','¿La creación de nuevos departamentos respondió a una necesidad administrativa, a intereses regionales o a una estrategia para debilitar a los antiguos estados soberanos? Argumente con un caso.'],
+      ['ter','Arrastre la regla del tiempo de 1900 a 1910 y observe los colores. ¿Qué regiones ganaron autonomía y cuáles siguieron dependiendo de otros centros?']]},
+ {id:'1907-coltejer', d:'1907-10', f:'1907', w:3, ws:[], ti:'Nace Coltejer en Medellín', lu:'Medellín (Antioquia)', p:MED,
+  tx:'Alejandro Echavarría fundó en Medellín la Compañía Colombiana de Tejidos, Coltejer, con capitales acumulados en el comercio y el café. Fue el comienzo de una industria textil antioqueña que, junto con Fabricato (1920), llegaría a ser la mayor del país y el símbolo de la industrialización de Medellín. Buena parte de su fuerza de trabajo inicial fueron mujeres jóvenes.',
+  qs:[['arg','Kalmanovitz sitúa los orígenes de la industria entre 1890 y 1929. ¿Qué relación hubo entre la acumulación cafetera y comercial antioqueña y el surgimiento de fábricas como Coltejer?'],
+      ['fue','¿Qué fuentes (fotografías, reglamentos de fábrica, prensa obrera, censos) usaría para reconstruir la vida de las primeras obreras textiles de Medellín?']]},
+ {id:'1910-reforma', d:'1910-10-31', f:'31 de octubre de 1910', w:8, ws:[1], ti:'Reforma constitucional del Centenario', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'En el año del primer centenario de la Independencia, celebrado con una gran exposición en el Parque de la Independencia, la Asamblea Nacional reformó la Constitución de 1886. Fijó el periodo presidencial en cuatro años, prohibió la reelección inmediata, abolió la pena de muerte y creó la acción pública de inconstitucionalidad ante la Corte Suprema.',
+  qs:[['arg','La reforma de 1910 abolió la pena de muerte y creó el control de constitucionalidad. ¿Fue un avance democrático real o un pacto entre élites para repartirse el poder?'],
+      ['com','Compare la reforma de 1910 con la Constitución de 1991: ¿quiénes participaron en cada una y qué derechos pusieron en el centro?']]},
+ {id:'1912-casement', d:'1912-07', f:'julio de 1912', w:14, ws:[], ti:'El informe Casement sobre el Putumayo', lu:'La Chorrera (Amazonas)', p:[-1.44,-72.79],
+  tx:'El cónsul británico Roger Casement publicó su informe sobre la explotación del caucho en el Putumayo, donde la Casa Arana, convertida en la Peruvian Amazon Company, sometió a los pueblos uitoto, bora, andoque y otros a trabajo forzado, torturas y asesinatos. Se calcula que murieron decenas de miles de indígenas. La sede de la empresa estaba en La Chorrera, en un territorio que el Estado colombiano apenas controlaba.',
+  qs:[['ter','Serje habla de territorios imaginados como salvajes y vacíos. ¿Cómo facilitó esa imagen del Putumayo que la explotación cauchera ocurriera sin control del Estado?'],
+      ['fue','El informe lo escribió un cónsul británico. ¿Qué ventajas y qué límites tiene como fuente para conocer la experiencia de los pueblos uitoto y bora?']]},
+ {id:'1914-urrutia-thomson', d:'1914-04-06', f:'6 de abril de 1914', w:1, ws:[4], ti:'Tratado Urrutia–Thomson', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Colombia y Estados Unidos firmaron en Bogotá un acuerdo para cerrar la herida de Panamá: Washington pagaría 25 millones de dólares y Colombia tendría privilegios en el canal, que se inauguró en agosto de ese año. El Senado estadounidense lo ratificó en 1921, después de eliminar la frase de «sincero pesar», y Colombia reconoció entonces la independencia panameña.',
+  qs:[['arg','¿Qué significó aceptar una indemnización en dinero por la pérdida de Panamá? Discuta si fue pragmatismo diplomático o renuncia a la soberanía.'],
+      ['com','¿Cómo se convirtió la indemnización en obras públicas y endeudamiento durante la «danza de los millones» de los años veinte?']]},
+ {id:'1919-artesanos', d:'1919-03-16', f:'16 de marzo de 1919', w:7, ws:[8], ti:'Masacre de los artesanos', lu:'Plaza de Bolívar, Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Artesanos y sastres de Bogotá marcharon hasta el Palacio de San Carlos, entonces sede presidencial, para protestar porque el gobierno de Marco Fidel Suárez había encargado en el exterior los uniformes del ejército. La guardia disparó contra la multitud y dejó varios muertos y heridos. El hecho anticipó las tensiones entre el Estado y los trabajadores urbanos organizados.',
+  qs:[['fue','Busque cómo registraron el hecho dos periódicos de la época con orientación política distinta. ¿Qué palabras usa cada uno para nombrar a los manifestantes?'],
+      ['arg','¿Por qué los artesanos, y no solo los obreros de fábrica, protagonizaron las primeras protestas urbanas? Use la lectura de Archila.']]},
+ {id:'1919-scadta', d:'1919-12-05', f:'5 de diciembre de 1919', w:4, ws:[], ti:'Nace SCADTA, pionera de la aviación', lu:'Barranquilla (Atlántico)', p:[10.964,-74.796],
+  tx:'Empresarios colombianos y alemanes fundaron la Sociedad Colombo-Alemana de Transportes Aéreos, considerada la primera aerolínea comercial de América. Sus hidroaviones remontaban el río Magdalena y reducían a horas viajes que tomaban semanas. En 1940 se fusionó con el Servicio Aéreo Colombiano y dio origen a Avianca.',
+  qs:[['arg','Hidroaviones sobre un país casi sin carreteras: ¿es SCADTA un ejemplo de «modernidad sin modernización»? Sostenga su respuesta con el capítulo de Palacios.'],
+      ['ter','Siga en el mapa el curso del río Magdalena. ¿Qué regiones conectó el avión y cuáles siguieron aisladas?']]},
+ {id:'1922-salomon-lozano', d:'1922-03-24', f:'24 de marzo de 1922', w:14, ws:[], ti:'Tratado Salomón–Lozano', lu:'Leticia (Amazonas)', cy:'Leticia', p:LET,
+  tx:'Colombia y Perú fijaron en Lima su frontera amazónica. Perú reconoció como colombianos los territorios al norte del río Putumayo y el trapecio amazónico, con el puerto de Leticia, que dio al país su salida al río Amazonas; Colombia renunció a sus reclamaciones al sur del Putumayo. La entrega de Leticia se hizo efectiva en 1930.',
+  qs:[['ter','Observe el trapecio amazónico en el mapa. ¿Qué intereses (caucho, navegación, soberanía) explican que Colombia buscara una salida al Amazonas?'],
+      ['nar','Los tratados de límites suelen enseñarse como líneas en un mapa. ¿Cómo cambia la historia si se cuenta desde los pueblos indígenas que quedaron a ambos lados de la nueva frontera?']]},
+ {id:'1923-banco-republica', d:'1923-07', f:'julio de 1923', w:4, ws:[3], ti:'Se funda el Banco de la República', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Siguiendo las recomendaciones de la misión del economista estadounidense Edwin Kemmerer, Colombia creó su banco central, con el monopolio de la emisión de billetes. La misma misión dio origen a la Contraloría General y a la Superintendencia Bancaria. Coincidió con la llegada de la indemnización por Panamá, que alimentó la «danza de los millones» de los años veinte.',
+  qs:[['arg','¿Fue la Misión Kemmerer una modernización del Estado o una adaptación del país a las necesidades del capital estadounidense? Prepare argumentos para ambos lados.'],
+      ['ens','¿Cómo explicaría a estudiantes de grado noveno qué es un banco central usando como fuente un billete de la época?']]},
+ {id:'1924-huelga-petrolera', d:'1924-10', f:'octubre de 1924', w:7, ws:[3,13], ti:'Huelga en la Tropical Oil', lu:'Barrancabermeja (Santander)', cy:'Barrancabermeja', p:BCA,
+  tx:'Los trabajadores de la Tropical Oil Company en Barrancabermeja pararon para exigir mejores salarios, alimentación y condiciones sanitarias, en una de las primeras grandes huelgas del país; entre sus dirigentes estuvo Raúl Eduardo Mahecha. Tanto esta huelga como la de 1927, que contó con el apoyo de la dirigente socialista María Cano, terminaron con represión y despidos.',
+  qs:[['com','Compare las huelgas petroleras con la de las bananeras de 1928. ¿Qué tenían en común los enclaves de empresas extranjeras y la respuesta del Estado?'],
+      ['nar','A María Cano la llamaron «la Flor del Trabajo». ¿Por qué las mujeres dirigentes del movimiento obrero ocupan tan poco espacio en los relatos escolares?']]},
+ {id:'1927-cafeteros', d:'1927-06-27', f:'27 de junio de 1927', w:2, ws:[], ti:'Nace la Federación Nacional de Cafeteros', lu:'Medellín (Antioquia)', cy:'Medellín', p:MED,
+  tx:'Productores reunidos en Medellín crearon la Federación para organizar la compra, la calidad y la exportación del grano, que ya era el principal producto de exportación del país. El café financió vías y ferrocarriles, impulsó la colonización de las laderas andinas y moldeó durante décadas la economía y la identidad nacional.',
+  qs:[['arg','¿Fue el café un motor de desarrollo nacional o una dependencia de un solo producto? Tome posición con los datos de Ocampo.'],
+      ['ter','Ubique en el mapa la zona cafetera. ¿Qué relación hay entre la colonización de las laderas andinas y la creación de departamentos como Caldas?']]},
+ {id:'1928-esguerra-barcenas', d:'1928-03-24', f:'24 de marzo de 1928', w:14, ws:[], ti:'Tratado Esguerra–Bárcenas', lu:'San Andrés', p:[12.58,-81.70],
+  tx:'Firmado en Managua, el tratado reconoció la soberanía de Colombia sobre el archipiélago de San Andrés, Providencia y Santa Catalina, y la de Nicaragua sobre la costa de Mosquitos y las islas del Maíz. Al ratificarse en 1930 se tomó el meridiano 82 como referencia, un punto que Nicaragua impugnaría medio siglo después.',
+  qs:[['ter','¿Qué dificultades tiene un Estado andino, gobernado desde Bogotá, para integrar un archipiélago caribeño cuyo pueblo raizal habla creole e inglés?'],
+      ['ens','Diseñe una actividad sobre este tratado para un colegio de San Andrés. ¿Desde qué perspectiva lo contaría y por qué?']]},
+ {id:'1928-bananeras', d:'1928-12-06', f:'6 de diciembre de 1928', w:7, ws:[2,8], ti:'Masacre de las Bananeras', lu:'Ciénaga (Magdalena)', p:[11.006,-74.247],
+  tx:'Tras casi cuatro semanas de huelga de los trabajadores de la United Fruit Company, el ejército disparó en la madrugada contra la multitud reunida en la plaza de la estación de Ciénaga. El número de muertos sigue en disputa. El debate que Jorge Eliécer Gaitán llevó al Congreso en 1929 y las páginas de «Cien años de soledad» la fijaron en la memoria nacional.',
+  qs:[['fue','Compare tres versiones del número de muertos: el informe oficial, el debate de Gaitán y la novela de García Márquez. ¿Por qué varían tanto y qué enseña eso sobre el uso de las fuentes?'],
+      ['arg','¿Fue la masacre un hecho aislado o la expresión de cómo el Estado trataba la protesta social? Argumente con otro caso del mapa.']]},
+ {id:'1930-olaya', d:'1930-02-09', f:'9 de febrero de 1930', w:8, ws:[], ti:'Fin de la Hegemonía Conservadora', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'La división del Partido Conservador y el desgaste tras la masacre de las bananeras permitieron el triunfo electoral del liberal Enrique Olaya Herrera. Terminaban 44 años de gobiernos conservadores (1886–1930) y comenzaba la llamada República Liberal, que se extendería hasta 1946.',
+  qs:[['arg','¿El cambio de partido en 1930 demuestra que el sistema democrático funcionaba o solo que la élite se turnaba el poder?'],
+      ['com','Compare el fin de la Hegemonía Conservadora con el fin del Frente Nacional en 1974. ¿Qué cambió y qué permaneció?']]},
+ {id:'1930-sumapaz', d:'1930-06', f:'décadas de 1920 y 1930', w:6, ws:[2], ti:'Luchas por la tierra en Sumapaz y Viotá', lu:'Región del Sumapaz (Cundinamarca)', p:[3.98,-74.48],
+  tx:'En el Sumapaz, colonos que trabajaban tierras baldías se enfrentaron a hacendados que alegaban títulos sobre ellas; en las haciendas cafeteras de Viotá, los arrendatarios reclamaron el derecho a sembrar café en sus parcelas. Organizados en ligas y sindicatos agrarios, con líderes como Erasmo Valencia, presionaron por la Ley 200 de 1936. Catherine LeGrand estudió a fondo estos conflictos.',
+  qs:[['arg','LeGrand sostiene que el conflicto entre colonos y propietarios por los baldíos es clave para entender la violencia posterior. ¿Está de acuerdo? ¿Qué otros factores pesaron?'],
+      ['ter','Ubique el Sumapaz en el mapa. ¿Por qué una región montañosa tan cercana a Bogotá fue escenario de luchas agrarias y, después, de guerrillas?']]},
+ {id:'1932-leticia', d:'1932-09-01', f:'1 de septiembre de 1932', w:14, ws:[], ti:'Conflicto con el Perú por Leticia', lu:'Leticia (Amazonas)', cy:'Leticia', p:LET,
+  tx:'Un grupo de civiles y militares peruanos ocupó Leticia y desató la guerra colombo-peruana. Colombia armó una flotilla que remontó el Amazonas y combatió en Tarapacá y Güepí en 1933. Tras la mediación de la Sociedad de Naciones, el Protocolo de Río de Janeiro (1934) ratificó la soberanía colombiana sobre el trapecio amazónico.',
+  qs:[['nar','El conflicto despertó un fuerte sentimiento patriótico en 1932. ¿Cómo se usan las guerras de frontera para construir unidad nacional?'],
+      ['ter','¿Qué significaba para el Estado defender un puerto al que era casi imposible llegar desde Bogotá? Observe las distancias en el mapa.']]},
+ {id:'1936-revolucion-en-marcha', d:'1936-08', f:'agosto de 1936', w:6, ws:[4,8], ti:'La Revolución en Marcha', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Bajo el primer gobierno de Alfonso López Pumarejo, una reforma constitucional introdujo la función social de la propiedad, la intervención del Estado en la economía, el derecho de huelga y el sufragio universal masculino, y garantizó la libertad de conciencia y de enseñanza. Ese mismo año, la Ley 200 reguló la propiedad de la tierra.',
+  qs:[['arg','La Ley 200 de 1936 buscó resolver los conflictos agrarios. ¿Los resolvió o los aplazó? Apóyese en LeGrand.'],
+      ['com','Compare la «función social de la propiedad» de 1936 con la reforma agraria de 1961 y el Pacto de Chicoral de 1972.']]},
+ {id:'1940-cafe', d:'1940-11-28', f:'28 de noviembre de 1940', w:2, ws:[], ti:'Pacto de cuotas y Fondo Nacional del Café', lu:'Bogotá (sede de la Federación)', cy:'Bogotá', p:BOG,
+  tx:'Con el mercado europeo cerrado por la Segunda Guerra Mundial, Colombia firmó con Estados Unidos y otros productores el Pacto Interamericano del Café, que fijó cuotas de exportación. Ese mismo año se creó el Fondo Nacional del Café, administrado por la Federación, con el que el gremio pasó a regular las compras y los precios internos.',
+  qs:[['arg','¿Qué ganó y qué perdió el Estado al delegar en un gremio privado la administración de la política cafetera?'],
+      ['com','Compare la dependencia del café en 1940 con la del petróleo a finales del siglo. ¿Qué riesgos comparten las economías de un solo producto?']]},
+ {id:'1944-andi', d:'1944-09-11', f:'11 de septiembre de 1944', w:3, ws:[], ti:'Nace la ANDI', lu:'Medellín (Antioquia)', cy:'Medellín', p:MED,
+  tx:'En plena Segunda Guerra Mundial, cuando la escasez de importaciones estimulaba la producción nacional, industriales reunidos en Medellín fundaron la Asociación Nacional de Industriales para defender la protección arancelaria y el crédito de fomento. Desde 1940, el Instituto de Fomento Industrial financiaba nuevas empresas: la sustitución de importaciones estaba en marcha.',
+  qs:[['arg','¿Fue la sustitución de importaciones una política planeada o una respuesta a crisis externas como la Gran Depresión y la guerra? Discuta con Kalmanovitz.'],
+      ['ens','Proponga un ejercicio con etiquetas de productos para que estudiantes de secundaria entiendan qué significa «sustituir importaciones».']]},
+ {id:'1948-bogotazo', d:'1948-04-09', f:'9 de abril de 1948', w:9, ws:[], ti:'El Bogotazo', lu:'Carrera Séptima con Avenida Jiménez, Bogotá', cy:'Bogotá', p:SEPT,
+  tx:'El asesinato del caudillo liberal Jorge Eliécer Gaitán en la carrera Séptima desató una revuelta que destruyó buena parte del centro de Bogotá y se extendió a otras ciudades. Ocurrió en plena IX Conferencia Panamericana, de la que nacería la OEA. El crimen agudizó La Violencia bipartidista, que entre 1946 y 1958 dejó cerca de 200.000 muertos.',
+  qs:[['arg','¿Fue el 9 de abril causa o síntoma de La Violencia? Ubique la fecha dentro de la periodización de Pécaut.'],
+      ['fue','Analice fotografías del centro de Bogotá después del 9 de abril. ¿Qué muestran y qué dejan por fuera de lo que pasaba en otras regiones?']]},
+ {id:'1949-congreso', d:'1949-11-09', f:'9 de noviembre de 1949', w:9, ws:[8], ti:'Ospina Pérez cierra el Congreso', lu:'Capitolio Nacional, Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Ante el anuncio de un juicio político en su contra, el presidente Mariano Ospina Pérez declaró el estado de sitio y cerró el Congreso. El Partido Liberal se abstuvo en las elecciones de ese mes y Laureano Gómez fue elegido sin contendor. La Violencia entró en su fase más cruenta.',
+  qs:[['arg','Gutiérrez Sanín describe una democracia que convive con la represión. ¿Cómo encaja el cierre del Congreso en 1949 con esa idea?'],
+      ['com','Compare el cierre del Congreso en 1949 con el golpe de 1953. ¿Cuál de los dos rompió más el orden constitucional?']]},
+ {id:'1951-ecopetrol', d:'1951-08-25', f:'25 de agosto de 1951', w:3, ws:[7], ti:'Reversión de la Concesión De Mares', lu:'Barrancabermeja (Santander)', cy:'Barrancabermeja', p:BCA,
+  tx:'Al vencer la concesión explotada por la Tropical Oil Company, los campos de Barrancabermeja pasaron a la Nación y nació la Empresa Colombiana de Petróleos, Ecopetrol. La concesión se había otorgado en 1905 y el primer pozo productivo brotó en 1918. Los sindicatos petroleros habían hecho de la nacionalización una de sus banderas.',
+  qs:[['com','Compare la reversión de la Concesión De Mares con la fundación del Banco de la República. ¿Cómo amplió el Estado su papel en la economía a lo largo del siglo?'],
+      ['arg','¿Por qué los sindicatos petroleros defendieron la nacionalización? Relaciónelo con las huelgas de 1924 y 1927.']]},
+ {id:'1953-rojas', d:'1953-06-13', f:'13 de junio de 1953', w:9, ws:[8,13], ti:'Golpe de Rojas Pinilla', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'En medio de La Violencia, el general Gustavo Rojas Pinilla tomó el poder con el apoyo de buena parte de ambos partidos. Su gobierno amnistió a las guerrillas liberales del Llano, aprobó el voto femenino (1954) e inauguró la televisión, pero la censura y la represión le restaron apoyo. Cayó en mayo de 1957, tras un paro nacional, y entregó el poder a una Junta Militar.',
+  qs:[['arg','Rojas llegó al poder con apoyo de ambos partidos. ¿Fue un golpe militar o un «golpe de opinión»? ¿Qué implica cada nombre?'],
+      ['nar','El voto femenino se aprobó bajo un gobierno militar. ¿Cómo cuentan este logro los textos escolares y qué lugar dan a las sufragistas?']]},
+ {id:'1954-estudiantes', d:'1954-06-09', f:'8 y 9 de junio de 1954', w:11, ws:[9], ti:'Masacre de estudiantes en la Séptima', lu:'Carrera Séptima con Avenida Jiménez, Bogotá', cy:'Bogotá', p:SEPT,
+  tx:'El 8 de junio, durante una protesta en la Universidad Nacional, murió el estudiante Uriel Gutiérrez. Al día siguiente, tropas del Batallón Colombia dispararon contra la marcha estudiantil en la carrera Séptima con calle 13 y mataron a varios jóvenes. Desde entonces, el 8 y 9 de junio se conmemora el Día del Estudiante Caído.',
+  qs:[['fue','¿Por qué el 8 y 9 de junio se volvió una fecha de conmemoración? Averigüe cómo la recuerdan hoy las universidades públicas.'],
+      ['arg','¿Qué dice esta masacre sobre la relación entre el gobierno de Rojas y la protesta estudiantil? Use el marco de Archila sobre movimientos sociales y Estado.']]},
+ {id:'1957-plebiscito', d:'1957-12-01', f:'1 de diciembre de 1957', w:8, ws:[12,13], ti:'Plebiscito: nace el Frente Nacional', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Por primera vez votaron las mujeres en una consulta nacional, y el «sí» ganó por amplia mayoría. El plebiscito estableció la paridad entre liberales y conservadores en los cargos públicos; una reforma de 1959 añadió la alternancia en la presidencia hasta 1974. El pacto frenó la violencia bipartidista, pero cerró el sistema político a otras fuerzas.',
+  qs:[['arg','¿Fue el Frente Nacional una solución a la violencia o la causa de nuevas violencias al excluir a otras fuerzas políticas? Prepare argumentos para un debate.'],
+      ['nar','Se suele decir que en 1957 se «concedió» el voto a las mujeres. ¿Qué cambia si decimos que las mujeres lo conquistaron?']]},
+ {id:'1964-marquetalia', d:'1964-05-27', f:'27 de mayo de 1964', w:12, ws:[6], ti:'Operación Marquetalia', lu:'Marquetalia, Planadas (Tolima)', p:[3.15,-75.89],
+  tx:'El ejército atacó la llamada «república independiente» de Marquetalia, en el sur del Tolima, donde se refugiaban núcleos de autodefensa campesina de origen liberal y comunista. Los sobrevivientes, liderados por Manuel Marulanda, formaron el Bloque Sur, que en 1966 adoptó el nombre de Fuerzas Armadas Revolucionarias de Colombia (FARC).',
+  qs:[['arg','Tirado relaciona el surgimiento de las guerrillas con el Frente Nacional. ¿Qué peso tienen la exclusión política, el problema agrario y la Guerra Fría en este caso?'],
+      ['nar','Para el Estado fue una operación contra «repúblicas independientes»; para las FARC, su mito fundacional. ¿Cómo se enseña un hecho con relatos opuestos?']]},
+ {id:'1965-simacota', d:'1965-01-07', f:'7 de enero de 1965', w:12, ws:[], ti:'El ELN se toma Simacota', lu:'Simacota (Santander)', p:[6.443,-73.337],
+  tx:'Un grupo guerrillero inspirado en la Revolución cubana se dio a conocer con la toma de este pueblo santandereano: era el Ejército de Liberación Nacional, fundado en julio de 1964. Al año siguiente se unió a sus filas el sacerdote Camilo Torres, que murió en su primer combate, en febrero de 1966.',
+  qs:[['com','Compare el origen campesino de las FARC con el origen urbano y estudiantil del ELN. ¿Qué dicen esas diferencias sobre las causas de la insurgencia?'],
+      ['fue','Camilo Torres escribió proclamas y artículos antes de unirse al ELN. ¿Qué enseñan sobre la relación entre religión, universidad y revolución en los años sesenta?']]},
+ {id:'1970-elecciones', d:'1970-04-19', f:'19 de abril de 1970', w:12, ws:[8], ti:'Las elecciones del 19 de abril', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Misael Pastrana, último candidato del Frente Nacional, fue declarado ganador por estrecho margen sobre el exdictador Gustavo Rojas Pinilla, en medio de denuncias de fraude. De esa frustración nació el Movimiento 19 de Abril (M-19), que en enero de 1974 se dio a conocer robando la espada de Bolívar de la Quinta de Bolívar, en Bogotá.',
+  qs:[['arg','¿Puede una sospecha de fraude explicar el paso a la lucha armada? Discuta el caso del M-19 con la lectura de Tirado.'],
+      ['ens','El robo de la espada fue un acto simbólico. ¿Cómo usaría la Quinta de Bolívar como lugar para enseñar este episodio? Vea la Lámina II.']]},
+ {id:'1971-cric', d:'1971-02-24', f:'24 de febrero de 1971', w:11, ws:[6], ti:'Nace el Consejo Regional Indígena del Cauca', lu:'Toribío (Cauca)', p:[2.95,-76.27],
+  tx:'Indígenas nasa, misak y de otros pueblos reunidos en Toribío fundaron el CRIC, con un programa de recuperación de las tierras de resguardo, fortalecimiento de los cabildos y defensa de las lenguas y culturas propias. Su lucha abrió camino al reconocimiento de la diversidad étnica y de las lenguas indígenas en la Constitución de 1991.',
+  qs:[['arg','¿Por qué el CRIC puso la recuperación de la tierra y la defensa de la lengua en el mismo programa? Relaciónelo con la lectura de Archila.'],
+      ['nar','En Colombia se hablan más de sesenta lenguas nativas. ¿Qué lugar ocupan las lenguas y los pueblos indígenas en la historia del siglo XX que se enseña en el colegio?']]},
+ {id:'1972-chicoral', d:'1972-01', f:'enero de 1972', w:6, ws:[11], ti:'El Pacto de Chicoral', lu:'Chicoral, El Espinal (Tolima)', p:[4.20,-74.97],
+  tx:'Dirigentes liberales y conservadores y representantes de los grandes propietarios, reunidos en Chicoral durante el gobierno de Misael Pastrana, acordaron frenar la reforma agraria iniciada en 1961 con la creación del Incora. El pacto fue también una reacción a las tomas masivas de tierras que la Asociación Nacional de Usuarios Campesinos (ANUC), creada en 1967, había promovido en 1971.',
+  qs:[['arg','Muchos investigadores ven en Chicoral una oportunidad perdida. ¿Qué relación hay entre la reforma agraria frustrada y la expansión de las guerrillas en los años setenta y ochenta?'],
+      ['com','Compare la ANUC con las ligas campesinas del Sumapaz en los años treinta: ¿qué reclamaban, cómo se organizaban y cómo respondió el Estado?']]},
+ {id:'1977-paro', d:'1977-09-14', f:'14 de septiembre de 1977', w:11, ws:[7], ti:'Paro Cívico Nacional', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Las centrales obreras convocaron un paro cívico nacional contra el alza del costo de vida durante el gobierno de Alfonso López Michelsen. Fue la mayor protesta popular desde 1948: barrios enteros de Bogotá se sumaron con barricadas, y la represión dejó muertos, heridos y miles de detenidos.',
+  qs:[['arg','¿Por qué un paro convocado por los sindicatos se convirtió en una protesta de barrios populares? ¿Qué dice eso de los nuevos actores sociales de los setenta?'],
+      ['com','Compare el paro de 1977 con el 9 de abril de 1948: ¿qué semejanzas y diferencias hay en sus causas y en la respuesta del Estado?']]},
+ {id:'1978-estatuto', d:'1978-09-06', f:'6 de septiembre de 1978', w:15, ws:[8], ti:'Estatuto de Seguridad', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Bajo estado de sitio, el gobierno de Julio César Turbay expidió el Decreto 1923, que amplió las facultades de las fuerzas militares, permitió juzgar civiles en consejos verbales de guerra y endureció las penas por formas de protesta. Organizaciones de derechos humanos denunciaron detenciones arbitrarias y torturas; en 1979 se fundó el Comité Permanente por la Defensa de los Derechos Humanos.',
+  qs:[['arg','¿Hasta qué punto el Estatuto aplicó la doctrina de seguridad nacional, que veía en la protesta social a un «enemigo interno»? Discuta con Leal Buitrago.'],
+      ['fue','Lea un fragmento del Decreto 1923 de 1978. ¿Qué conductas castiga y qué tan precisas son sus definiciones?']]},
+ {id:'1982-nobel', d:'1982-12-10', f:'10 de diciembre de 1982', w:4, ws:[7], ti:'Nobel de Literatura para García Márquez', lu:'Aracataca (Magdalena)', p:[10.591,-74.19],
+  tx:'Gabriel García Márquez, nacido en Aracataca en 1927, recibió en Estocolmo el Premio Nobel de Literatura. «Cien años de soledad» (1967), ambientada en el pueblo imaginario de Macondo, había llevado la literatura colombiana y el realismo mágico a todo el mundo. Su discurso de aceptación se tituló «La soledad de América Latina».',
+  qs:[['nar','¿Puede una novela ser fuente histórica? Discuta cómo «Cien años de soledad» moldeó la memoria de la masacre de las bananeras.'],
+      ['arg','Macondo recibe el ferrocarril, el hielo y la compañía bananera, pero sigue aislado. ¿Es una metáfora de la «modernidad sin modernización»?']]},
+ {id:'1983-cano-limon', d:'1983-07', f:'1983', w:14, ws:[3], ti:'Descubrimiento de Caño Limón', lu:'Caño Limón (Arauca)', p:[6.95,-71.12],
+  tx:'La estadounidense Occidental Petroleum halló en Arauca el mayor yacimiento de petróleo descubierto hasta entonces en el país. Con el oleoducto Caño Limón–Coveñas, en operación desde 1986, Colombia volvió a ser exportador de crudo; la tubería se convirtió también en blanco frecuente de atentados guerrilleros.',
+  qs:[['ter','El petróleo llegó a una región de frontera con poca presencia estatal. ¿Qué cambios trajo para la economía, la población y el conflicto armado de Arauca?'],
+      ['arg','Serje sostiene que las fronteras se han mirado como lugares para extraer recursos. ¿Confirma Caño Limón esa idea?']]},
+ {id:'1985-palacio', d:'1985-11-06', f:'6 de noviembre de 1985', w:12, ws:[13,8], ti:'Toma del Palacio de Justicia', lu:'Plaza de Bolívar, Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Un comando del M-19 se tomó la sede de la Corte Suprema y del Consejo de Estado. La retoma militar, con tanques y un incendio que consumió el edificio y sus archivos, dejó cerca de un centenar de muertos, entre ellos once magistrados de la Corte. Varias personas salieron con vida y luego desaparecieron, entre ellas trabajadores de la cafetería y la guerrillera Irma Franco.',
+  qs:[['fue','Compare la cobertura de radio y televisión de esos dos días, incluida la transmisión de un partido de fútbol ordenada por el gobierno, con los testimonios de los familiares de los desaparecidos.'],
+      ['nar','Entre los desaparecidos había trabajadoras de la cafetería y una guerrillera. ¿Cómo cambia la lectura del hecho si se cuenta desde ellas?']]},
+ {id:'1987-up', d:'1987-10-11', f:'11 de octubre de 1987', w:8, ws:[12], ti:'Asesinato de Jaime Pardo Leal y exterminio de la UP', lu:'La Mesa (Cundinamarca)', p:[4.63,-74.46],
+  tx:'La Unión Patriótica nació en 1985 de los acuerdos entre el gobierno de Belisario Betancur y las FARC. Miles de sus militantes fueron asesinados o desaparecidos, entre ellos sus candidatos presidenciales Jaime Pardo Leal, en 1987, y Bernardo Jaramillo Ossa, en 1990. En 2022, la Corte Interamericana de Derechos Humanos declaró responsable al Estado colombiano.',
+  qs:[['arg','¿Puede llamarse democracia un sistema en el que se extermina a un partido de oposición? Use el concepto de democracia con represión de Gutiérrez Sanín.'],
+      ['com','Compare el destino de la UP con la desmovilización del M-19 en 1990. ¿Por qué un proceso de paz terminó en exterminio y el otro en participación política?']]},
+ {id:'1989-galan', d:'1989-08-18', f:'18 de agosto de 1989', w:15, ws:[8], ti:'Asesinato de Luis Carlos Galán', lu:'Soacha (Cundinamarca)', p:[4.579,-74.217],
+  tx:'El candidato presidencial liberal, favorito para 1990 y enemigo declarado de los carteles, fue asesinado durante una manifestación en la plaza de Soacha. En los meses siguientes, el cartel de Medellín voló en pleno vuelo un avión de Avianca y el edificio del DAS en Bogotá. Fue el punto más alto del narcoterrorismo.',
+  qs:[['arg','¿Cómo transformó el narcotráfico la agenda de seguridad del Estado en los años ochenta? Use la lectura de Leal Buitrago.'],
+      ['com','Compare el asesinato de Galán con el de Gaitán. ¿Qué papel jugaron estos magnicidios en la historia política del siglo?']]},
+ {id:'1990-m19', d:'1990-03', f:'marzo de 1990', w:13, ws:[12,8], ti:'El M-19 deja las armas', lu:'Santo Domingo, Toribío (Cauca)', p:[2.90,-76.22],
+  tx:'Tras meses de negociación con el gobierno de Virgilio Barco, el M-19 entregó sus armas en el campamento de Santo Domingo, en el Cauca, y se convirtió en partido político. Su comandante Carlos Pizarro fue asesinado semanas después, siendo candidato presidencial. Militantes como Vera Grabe y María Eugenia Vásquez narraron más tarde la experiencia de las mujeres en la insurgencia.',
+  qs:[['fue','Lea el fragmento de «Escrito para no morir» de la semana 13. ¿Qué aporta el testimonio de una militante que no aparece en los comunicados de la guerrilla ni del gobierno?'],
+      ['arg','¿Qué papeles asumieron las mujeres en las guerrillas: combatientes, dirigentes, enlaces? ¿Fueron reconocidas en los acuerdos de paz?']]},
+ {id:'1991-constitucion', d:'1991-07-04', f:'4 de julio de 1991', w:8, ws:[11,14], ti:'Constitución Política de 1991', lu:'Bogotá', cy:'Bogotá', p:BOG,
+  tx:'Impulsada por el movimiento estudiantil de la «séptima papeleta» y tras la desmovilización del M-19, una Asamblea Nacional Constituyente con exguerrilleros, indígenas y nuevos partidos reemplazó la Constitución de 1886. La nueva carta definió a Colombia como Estado social de derecho, reconoció la diversidad étnica y las lenguas indígenas, creó la tutela, la Corte Constitucional y la Fiscalía, y convirtió en departamentos las antiguas intendencias y comisarías.',
+  qs:[['arg','¿Cumplió la Constitución de 1991 la promesa de ampliar la democracia? Evalúe un derecho concreto, como la tutela o la consulta previa.'],
+      ['ter','Arrastre la regla del tiempo hasta 1991. ¿Qué significó que las antiguas intendencias y comisarías se volvieran departamentos?']]},
+ {id:'1993-escobar', d:'1993-12-02', f:'2 de diciembre de 1993', w:15, ws:[], ti:'Muerte de Pablo Escobar', lu:'Medellín (Antioquia)', cy:'Medellín', p:MED,
+  tx:'Dieciséis meses después de fugarse de la cárcel de La Catedral, el jefe del cartel de Medellín murió abatido sobre un tejado del barrio Los Olivos, acorralado por el Bloque de Búsqueda. A comienzos de los noventa, Medellín había registrado una de las tasas de homicidio más altas del mundo. La caída de Escobar no acabó con el narcotráfico; el cartel de Cali y otras organizaciones ocuparon su lugar.',
+  qs:[['arg','¿Por qué Medellín, ciudad industrial, tuvo a comienzos de los noventa una de las tasas de homicidio más altas del mundo? Relacione narcotráfico, desempleo y sicariato con Leal Buitrago.'],
+      ['nar','Las series de televisión sobre Escobar son muy populares. ¿Qué riesgos tiene construir la memoria del narcotráfico desde la figura del capo y no desde las víctimas?']]},
+ {id:'1994-proceso-8000', d:'1994-06', f:'junio de 1994', w:8, ws:[15], ti:'Los narcocasetes y el Proceso 8.000', lu:'Cali (Valle del Cauca)', p:[3.452,-76.532],
+  tx:'Grabaciones reveladas tras la segunda vuelta presidencial mostraron que el cartel de Cali había ofrecido dinero a la campaña de Ernesto Samper. La investigación judicial, conocida como Proceso 8.000, llevó a la cárcel a su exministro de Defensa y a varios congresistas. La Cámara absolvió a Samper en 1996, pero Estados Unidos le retiró la visa y descertificó al país.',
+  qs:[['arg','¿Muestra el Proceso 8.000 la captura del Estado por el narcotráfico o la capacidad de la justicia para investigar al poder?'],
+      ['fue','Analice titulares de prensa de 1994 a 1996. ¿Cómo influyeron los medios y Estados Unidos en la crisis política?']]},
+ {id:'1997-mapiripan', d:'1997-07-15', f:'15 de julio de 1997', w:15, ws:[6,12], ti:'Masacre de Mapiripán', lu:'Mapiripán (Meta)', p:[2.891,-72.133],
+  tx:'Durante cinco días, paramilitares llegados en vuelos desde Urabá torturaron y asesinaron a pobladores de este municipio a orillas del río Guaviare. En 2005, la Corte Interamericana de Derechos Humanos condenó al Estado colombiano por la colaboración de miembros del ejército. Pocos meses antes de la masacre se habían agrupado las Autodefensas Unidas de Colombia (AUC).',
+  qs:[['arg','¿Cómo encaja el paramilitarismo, presentado como «autodefensa», en la idea de la seguridad como mecanismo de violencia perpetua?'],
+      ['ter','Mapiripán está junto a un gran río de los Llanos. ¿Qué relación hay entre el control de rutas, los cultivos de uso ilícito y la tierra en esta masacre?']]},
+ {id:'1998-caguan', d:'1998-11-07', f:'7 de noviembre de 1998', w:12, ws:[15], ti:'Zona de distensión del Caguán', lu:'San Vicente del Caguán (Caquetá)', p:[2.115,-74.77],
+  tx:'El presidente Andrés Pastrana retiró la fuerza pública de 42.000 km² en cinco municipios de Meta y Caquetá para negociar con las FARC. Los diálogos se rompieron en febrero de 2002 sin acuerdos, mientras la guerrilla alcanzaba su mayor tamaño.',
+  qs:[['com','Compare la zona de distensión con los diálogos que dieron origen a la UP en 1985. ¿Qué lecciones dejaron los procesos de paz fallidos?'],
+      ['ter','¿Por qué el Estado cedió el control de un territorio casi del tamaño de Suiza en una región de colonización? Observe su ubicación en el mapa.']]},
+ {id:'2000-el-salado', d:'2000-02-16', f:'16 al 21 de febrero de 2000', w:13, ws:[6,15], ti:'Masacre de El Salado', lu:'El Salado, El Carmen de Bolívar (Bolívar)', p:[9.77,-75.06],
+  tx:'Unos 450 paramilitares de las Autodefensas Unidas de Colombia ocuparon durante varios días este corregimiento de los Montes de María. Torturaron y asesinaron a decenas de pobladores, ejercieron violencia sexual contra mujeres y provocaron el desplazamiento de casi toda la población. El Grupo de Memoria Histórica documentó la masacre en el informe «La masacre de El Salado: esa guerra no era nuestra» (2009).',
+  qs:[['arg','¿Por qué la violencia sexual contra las mujeres se usó como arma de guerra en masacres como esta? Relaciónelo con la sesión de la semana 13.'],
+      ['fue','El informe de memoria se titula «Esa guerra no era nuestra». ¿Qué dice ese título sobre cómo vivieron el conflicto las comunidades campesinas?']]},
+ {id:'2000-plan-colombia', d:'2000-07-13', f:'13 de julio de 2000', w:15, ws:[14], ti:'Plan Colombia', lu:'Puerto Asís (Putumayo)', p:[0.505,-76.495],
+  tx:'Estados Unidos aprobó un paquete de ayuda de unos 1.300 millones de dólares, en su mayor parte militar, para combatir el narcotráfico y fortalecer a las fuerzas armadas. Su primera fase se concentró en el Putumayo, entonces la mayor zona de cultivos de coca del país, con fumigaciones aéreas masivas.',
+  qs:[['arg','¿Fue el Plan Colombia una estrategia antidrogas o contrainsurgente? Revise cómo se distribuyeron los recursos.'],
+      ['ter','La primera fase se concentró en el Putumayo, un antiguo territorio nacional. ¿Qué efectos tuvieron las fumigaciones sobre las comunidades campesinas e indígenas?']]}
 ];
 
-/* Historia territorial. h: [año desde, estado]  D = departamento, T = territorio nacional, p:XXX = parte de XXX */
+/* ======================= Lámina II: centro de Bogotá ======================= */
+const STOPS = [
+ {n:1, ti:'Plaza de Bolívar', sub:'Capitolio Nacional, Palacio de Justicia y Catedral', p:[4.5981,-74.0760], ev:['1919-artesanos','1949-congreso','1985-palacio'],
+  tx:'El corazón del poder político: aquí se reunió el Congreso que Ospina Pérez cerró en 1949, aquí está el Palacio de Justicia reconstruido tras 1985, y a pocos pasos estaba el Palacio de San Carlos, frente al cual murieron los artesanos en 1919.',
+  q:'Frente al Palacio de Justicia: ¿qué rastros de noviembre de 1985 quedan en el edificio o en la plaza? ¿Qué se recuerda y qué se omite?'},
+ {n:2, ti:'Carrera Séptima con Avenida Jiménez', sub:'La antigua Calle Real', p:[4.6013,-74.0737], ev:['1948-bogotazo','1954-estudiantes'],
+  tx:'En esta esquina cayó Jorge Eliécer Gaitán el 9 de abril de 1948, y por aquí bajaba la marcha estudiantil del 9 de junio de 1954. Hoy es un corredor peatonal y comercial.',
+  q:'Busque la placa que señala el lugar donde cayó Gaitán. ¿Cómo dialoga ese pequeño monumento con el ritmo comercial de la calle?'},
+ {n:3, ti:'Quinta de Bolívar', sub:'Al pie de Monserrate', p:[4.6004,-74.0643], ev:['1970-elecciones'],
+  tx:'Casa museo dedicada a Simón Bolívar. En enero de 1974, el M-19 robó de aquí la espada del Libertador para presentarse ante el país.',
+  q:'¿Por qué un grupo armado buscó legitimarse con un símbolo patrio? ¿Qué otros usos políticos ha tenido la figura de Bolívar?'},
+ {n:4, ti:'Parque de la Independencia', sub:'Exposición del Centenario, 1910', p:[4.6110,-74.0686], ev:['1910-reforma'],
+  tx:'Se construyó para la exposición con la que se celebró el primer centenario de la Independencia, el mismo año de la reforma constitucional de 1910. De ella sobrevive el quiosco de la Luz.',
+  q:'¿Qué idea de nación quería exhibir la élite de 1910 y quiénes quedaban fuera de ella?'},
+ {n:5, ti:'Museo Nacional', sub:'Antigua Penitenciaría Central', p:[4.6155,-74.0675], ev:[],
+  tx:'El edificio fue cárcel hasta mediados del siglo XX y alberga el Museo Nacional desde 1948. Es un buen lugar para analizar cómo se exhibe y se narra la historia del país.',
+  q:'Recorra las salas del siglo XX. ¿Qué hechos de este mapa aparecen, cuáles no y desde qué punto de vista se narran?'}
+];
+
 const ORIG = 'Uno de los nueve departamentos de la Constitución de 1886.';
 const DEPTS = {
   ANT:{n:'Antioquia', de:'de Antioquia', h:[[0,'D']], note:ORIG},
@@ -746,11 +1092,17 @@ for (const id in GEO.pts){ if (id === 'DC' || id === 'SAP') continue; const p = 
 const mkG = el('g', null, view);
 const selG = el('g', {'pointer-events':'none'}, view);
 
+
 /* ======================= Estado ======================= */
-let cur = 0, curT = EVENTS[0].t, playing = null, tlX = null;
-const active = new Set(Object.keys(CATS));
+let cur = 0, curT = EVENTS[0].t, playing = null, tlX = null, sesW = 1;
+const F = {k:null, w:null};
 const V = {x:0, y:0, w:W, h:H};
 let ppu = 1, lastClusterKey = '';
+const kVar = w => 'var(--k' + corteOf(w) + ')';
+const inWeek = (e, w) => e.w === w || e.ws.includes(w);
+function visible(e){ if (F.w) return inWeek(e, F.w); if (F.k) return corteOf(e.w) === F.k; return true; }
+const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+function reveal(id){ const n = $(id); if (n) n.scrollIntoView({behavior:reduceMotion() ? 'auto' : 'smooth', block:'start'}); }
 
 function setYear(t){
   curT = t;
@@ -783,6 +1135,7 @@ function statusText(id, t){
   return '<b>' + D.n + '</b> en ' + y + ': ' + st + '. ' + D.note;
 }
 const info = $('mapInfo'), infoDefault = info.innerHTML;
+
 
 /* ---------- vista, zoom y paneo ---------- */
 function applyView(){
@@ -848,27 +1201,29 @@ function updateScale(){
   $('scale').innerHTML = '<div class="scale-row"><span>0</span><span>' + km / 2 + '</span><span>' + km + ' km</span></div><div class="scale-bar" style="width:' + px + 'px"><i></i><i></i><i></i><i></i></div><div class="scale-row"><span>Leguas de 5 km</span><span>' + leg + '</span></div>';
 }
 
+
+
 /* ---------- marcadores en el mapa ---------- */
 function drawMarkers(){
-  const u = 1 / ppu, key = u.toFixed(3) + [...active].join('') + cur;
+  const u = 1 / ppu, key = u.toFixed(3) + '|' + F.k + '|' + F.w + '|' + cur;
   if (key === lastClusterKey) return; lastClusterKey = key;
   mkG.textContent = ''; selG.textContent = '';
   const thr = 15 * u, clusters = [];
-  EVENTS.filter(e => active.has(e.c)).forEach(e => {
+  EVENTS.filter(visible).forEach(e => {
     const c = clusters.find(c => Math.hypot(c.x - e.x, c.y - e.y) < thr);
-    if (c){ c.ev.push(e); } else clusters.push({x:e.x, y:e.y, ev:[e]});
+    if (c) c.ev.push(e); else clusters.push({x:e.x, y:e.y, ev:[e]});
   });
   clusters.forEach(c => {
-    const g = el('g', {class:'mk', transform:'translate(' + c.x.toFixed(1) + ' ' + c.y.toFixed(1) + ') scale(' + u.toFixed(4) + ')', tabindex:-1}, mkG); g.__ev = c.ev;
-    const multi = c.ev.length > 1, cats = new Set(c.ev.map(v => v.c));
-    const fill = cats.size === 1 ? 'var(--c-' + c.ev[0].c + ')' : 'var(--ink)';
+    const g = el('g', {class:'mk', transform:'translate(' + c.x.toFixed(1) + ' ' + c.y.toFixed(1) + ') scale(' + u.toFixed(4) + ')'}, mkG); g.__ev = c.ev;
+    const multi = c.ev.length > 1, ks = new Set(c.ev.map(v => corteOf(v.w)));
+    const fill = ks.size === 1 ? kVar(c.ev[0].w) : 'var(--ink)';
     el('circle', {r:multi ? 9.5 : 6.5, fill:'transparent'}, g);
     el('circle', {class:'mk-dot', r:multi ? 8 : 5.5, fill:fill, stroke:'var(--paper-hi)', 'stroke-width':1.8}, g);
     if (multi){ const t = el('text', {class:'mk-num', 'text-anchor':'middle', dy:'.36em'}, g); t.textContent = c.ev.length; }
   });
   const e = EVENTS[cur], g = el('g', {transform:'translate(' + e.x.toFixed(1) + ' ' + e.y.toFixed(1) + ') scale(' + u.toFixed(4) + ')'}, selG);
-  el('circle', {class:'pulse', r:16, fill:'none', stroke:'var(--c-' + e.c + ')', 'stroke-width':2.5}, g);
-  el('circle', {r:8.5, fill:'var(--c-' + e.c + ')', stroke:'var(--paper-hi)', 'stroke-width':2.6}, g);
+  el('circle', {class:'pulse', r:16, fill:'none', stroke:kVar(e.w), 'stroke-width':2.5}, g);
+  el('circle', {r:8.5, fill:kVar(e.w), stroke:'var(--paper-hi)', 'stroke-width':2.6}, g);
   el('circle', {r:2.6, fill:'var(--paper-hi)'}, g);
   const sx = (e.x - V.x) / V.w, sy = (e.y - V.y) / V.h, left = sx > .58, below = sy < .3;
   const cg = el('g', {transform:'translate(' + (left ? -16 : 16) + ' ' + (below ? 30 : -18) + ')'}, g);
@@ -884,21 +1239,55 @@ function clickCluster(evs){
   const k = ids.indexOf(cur); select(k >= 0 ? ids[(k + 1) % ids.length] : ids[0]);
 }
 
+/* ---------- preguntas discutidas ---------- */
+const SKEY = 'colombia-sxx-discutidas-v1';
+let DONE = new Set();
+try { DONE = new Set(JSON.parse(localStorage.getItem(SKEY) || '[]')); } catch(_){ DONE = new Set(); }
+const ALLQ = [];
+EVENTS.forEach(e => e.qs.forEach((q, i) => ALLQ.push({id:e.id + '-' + (i + 1), tag:q[0], text:q[1], ev:e})));
+WEEKS.forEach(x => (x.qs || []).forEach((q, i) => ALLQ.push({id:'s' + x.w + '-' + (i + 1), tag:q[0], text:q[1], wk:x})));
+STOPS.forEach(st => ALLQ.push({id:'b' + st.n, tag:'lug', text:st.q, st:st}));
+const QBY = {}; ALLQ.forEach(q => QBY[q.id] = q);
+function saveDone(){ try { localStorage.setItem(SKEY, JSON.stringify([...DONE])); } catch(_){} updateProgress(); }
+function setDone(id, on){
+  if (on) DONE.add(id); else DONE.delete(id); saveDone();
+  document.querySelectorAll('input[data-qid="' + id + '"]').forEach(inp => { inp.checked = on; inp.closest('li').classList.toggle('done', on); });
+}
+function qItem(q){
+  const iid = 'q-' + q.id, on = DONE.has(q.id);
+  const inp = h('input', {type:'checkbox', id:iid, 'data-qid':q.id}); inp.checked = on; inp.onchange = () => setDone(q.id, inp.checked);
+  return h('li', on ? {class:'done'} : null, [inp, h('label', {for:iid}, [h('span', {class:'qtag', text:TAGS[q.tag]}), h('span', {class:'qtext', text:q.text})])]);
+}
+function fillQs(ol, qs){ ol.textContent = ''; qs.forEach(q => ol.appendChild(qItem(q))); }
+function updateProgress(){ $('progN').textContent = ALLQ.filter(q => DONE.has(q.id)).length; $('progT').textContent = ALLQ.length; }
+let resetArm = null;
+$('resetQ').onclick = function(){
+  if (!resetArm){ this.textContent = 'Pulse otra vez para confirmar'; resetArm = setTimeout(() => { resetArm = null; this.textContent = 'Desmarcar todas'; }, 3000); return; }
+  clearTimeout(resetArm); resetArm = null; this.textContent = 'Desmarcar todas'; [...DONE].forEach(id => setDone(id, false));
+};
+
 /* ---------- ficha ---------- */
+function weekLink(w, main){
+  return h('button', {type:'button', class:'linkish', title:'Abrir la sesión de la semana ' + w, text:(main ? '' : 'También en ') + 'Sem. ' + w + ' · ' + WK[w].eje,
+    onclick:() => { stopPlay(); setWeek(w); reveal('plan'); }});
+}
 function renderFicha(){
-  const e = EVENTS[cur];
+  const e = EVENTS[cur], k = corteOf(e.w);
   $('fNum').textContent = cur + 1; $('fTot').textContent = EVENTS.length;
-  const st = $('fStamp'); st.textContent = CATS[e.c].n; st.style.setProperty('--c', 'var(--c-' + e.c + ')');
+  const st = $('fStamp'); st.textContent = 'Semana ' + e.w + ' · Corte ' + ROMAN[k]; st.style.setProperty('--c', kVar(e.w));
   $('fDate').textContent = e.f; $('fTitle').textContent = e.ti; $('fPlace').textContent = e.lu;
   $('fCoord').textContent = dms(e.p[0], 'N', 'S') + ' · ' + dms(e.p[1], 'E', 'O');
   $('fText').textContent = e.tx;
+  const fw = $('fWeek'); fw.textContent = ''; fw.appendChild(weekLink(e.w, true)); e.ws.forEach(w => fw.appendChild(weekLink(w, false)));
   const era = eraAt(e.t); $('fEra').textContent = era[2] + ' ' + era[4];
   $('fPres').textContent = presAt(e.t);
-  const same = EVENTS.filter(o => o !== e && Math.abs(o.p[0] - e.p[0]) < .01 && Math.abs(o.p[1] - e.p[1]) < .01);
+  fillQs($('fQs'), e.qs.map((q, i) => QBY[e.id + '-' + (i + 1)]));
+  const same = EVENTS.filter(o => o !== e && ((e.cy && o.cy === e.cy) || (Math.abs(o.p[0] - e.p[0]) < .01 && Math.abs(o.p[1] - e.p[1]) < .01)));
   const fs = $('fSame');
-  if (same.length){ fs.hidden = false; fs.innerHTML = '<span>También en ' + e.lu.replace(/^Plaza de Bolívar, /, '').replace(/ \(.*\)$/, '') + ':</span> ';
-    same.forEach((o, k) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'linkish'; b.textContent = Math.floor(o.t) + ', ' + o.ti; b.onclick = () => { stopPlay(); select(o.i); }; fs.appendChild(b); if (k < same.length - 1) fs.appendChild(document.createTextNode(' · ')); }); }
-  else { fs.hidden = true; fs.textContent = ''; }
+  if (same.length){
+    fs.hidden = false; fs.textContent = ''; fs.appendChild(h('span', {text:'También en ' + (e.cy || e.lu.replace(/ \(.*\)$/, '')) + ': '}));
+    same.forEach((o, n) => { fs.appendChild(h('button', {type:'button', class:'linkish', text:Math.floor(o.t) + ', ' + o.ti, onclick:() => { stopPlay(); select(o.i); }})); if (n < same.length - 1) fs.appendChild(document.createTextNode(' · ')); });
+  } else { fs.hidden = true; fs.textContent = ''; }
   const body = $('fBody'); body.classList.remove('swap'); void body.offsetWidth; body.classList.add('swap');
 }
 
@@ -907,20 +1296,23 @@ function select(i, opts){
   opts = opts || {}; cur = i; const e = EVENTS[i];
   renderFicha(); lastClusterKey = ''; drawMarkers(); highlightPin();
   cancelAnimationFrame(yearAnim);
-  const from = curT, to = e.t, t0 = performance.now(), ms = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : Math.min(1100, 260 + Math.abs(to - from) * 22);
+  const from = curT, to = e.t, t0 = performance.now(), ms = reduceMotion() ? 0 : Math.min(1100, 260 + Math.abs(to - from) * 22);
   const stepY = now => { const k = ms ? Math.min(1, (now - t0) / ms) : 1, q = 1 - Math.pow(1 - k, 3); setYear(from + (to - from) * q); if (k < 1) yearAnim = requestAnimationFrame(stepY); };
   yearAnim = requestAnimationFrame(stepY);
-  if (V.w < W * .98){ const nx = e.x - V.w / 2, ny = e.y - V.h / 2; animateTo(nx, ny, V.w, 500); }
+  if (V.w < W * .98) animateTo(e.x - V.w / 2, e.y - V.h / 2, V.w, 500);
   try { history.replaceState(null, '', '#' + e.id); } catch(_){}
   if (!opts.noScroll) scrollPinIntoView();
+  if (opts.reveal) reveal('atlas');
 }
-function visibleIdx(){ return EVENTS.filter(e => active.has(e.c)).map(e => e.i); }
-function step(dir){ const v = visibleIdx(); if (!v.length) return; let k = v.indexOf(cur);
-  if (k < 0){ k = dir > 0 ? v.findIndex(i => i > cur) : v.length - 1 - [...v].reverse().findIndex(i => i < cur); if (k < 0 || k >= v.length) k = dir > 0 ? 0 : v.length - 1; select(v[k]); return; }
-  k = (k + dir + v.length) % v.length; select(v[k]); }
+function visibleIdx(){ return EVENTS.filter(visible).map(e => e.i); }
+function step(dir){
+  const v = visibleIdx(); if (!v.length) return; let k = v.indexOf(cur);
+  if (k < 0){ const after = v.filter(i => dir > 0 ? i > cur : i < cur); select(after.length ? (dir > 0 ? after[0] : after[after.length - 1]) : (dir > 0 ? v[0] : v[v.length - 1])); return; }
+  select(v[(k + dir + v.length) % v.length]);
+}
 $('prev').onclick = () => { stopPlay(); step(-1); };
 $('next').onclick = () => { stopPlay(); step(1); };
-function stopPlay(){ if (playing){ clearInterval(playing); playing = null; $('playLabel').textContent = 'Recorrer el siglo'; $('playIcon').innerHTML = '<path d="M2 1l9 5-9 5z" fill="currentColor"/>'; } }
+function stopPlay(){ if (playing){ clearInterval(playing); playing = null; $('playLabel').textContent = 'Recorrer'; $('playIcon').innerHTML = '<path d="M2 1l9 5-9 5z" fill="currentColor"/>'; } }
 $('play').onclick = () => {
   if (playing){ stopPlay(); return; }
   const v = visibleIdx(); if (!v.length) return;
@@ -929,98 +1321,256 @@ $('play').onclick = () => {
   playing = setInterval(() => { const vv = visibleIdx(); if (cur === vv[vv.length - 1]){ stopPlay(); return; } step(1); }, 5200);
 };
 document.addEventListener('keydown', e => {
+  if (!$('modal').hidden) return;
   if (e.target.closest && e.target.closest('input, textarea, select')) return;
   if (e.key === 'ArrowRight'){ stopPlay(); step(1); e.preventDefault(); }
   else if (e.key === 'ArrowLeft'){ stopPlay(); step(-1); e.preventDefault(); }
 });
 
-/* ---------- chips ---------- */
-(function(){
-  const box = $('chips');
-  for (const k in CATS){
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.setAttribute('aria-pressed', 'true'); b.style.setProperty('--c', 'var(--c-' + k + ')');
-    b.innerHTML = '<i></i>' + CATS[k].s + ' <span>' + EVENTS.filter(e => e.c === k).length + '</span>'; b.title = CATS[k].n;
-    b.onclick = () => { const on = b.getAttribute('aria-pressed') !== 'true'; if (!on && active.size === 1) return; b.setAttribute('aria-pressed', on); on ? active.add(k) : active.delete(k); lastClusterKey = ''; drawMarkers(); buildTimeline(); };
-    box.appendChild(b);
-  }
-})();
+/* ---------- filtros: corte y semana ---------- */
+function applyFilter(){
+  lastClusterKey = ''; drawMarkers(); buildTimeline(); renderChips(); renderIdx();
+  if (!visible(EVENTS[cur])){ const v = visibleIdx(); if (v.length) select(v[0]); }
+}
+function setCorte(k){ stopPlay(); F.k = k; F.w = null; applyFilter(); }
+function setWeek(w){ stopPlay(); F.w = w; F.k = null; sesW = w; renderSes(); applyFilter(); }
+function clearFilter(){ stopPlay(); F.k = null; F.w = null; applyFilter(); }
+function renderChips(){
+  const box = $('chips'); box.textContent = '';
+  box.appendChild(h('button', {type:'button', class:'chip chip-all', 'aria-pressed':String(!F.k && !F.w), onclick:clearFilter}, [h('i'), 'Todo el curso']));
+  [1, 2, 3].forEach(k => {
+    const n = EVENTS.filter(e => corteOf(e.w) === k).length;
+    const b = h('button', {type:'button', class:'chip', 'aria-pressed':String(F.k === k), title:CORTES[k].r + ' · ' + CORTES[k].p + ' de la nota',
+      onclick:() => setCorte(F.k === k ? null : k)}, [h('i'), CORTES[k].n + ' ', h('span', {text:String(n)})]);
+    b.style.setProperty('--c', 'var(--k' + k + ')'); box.appendChild(b);
+  });
+  const wp = $('wPill');
+  if (F.w){ wp.hidden = false; wp.textContent = ''; wp.style.background = kVar(F.w); wp.append('Semana ' + F.w + ' · ' + WK[F.w].eje + ' ', h('span', {text:'✕ quitar'})); wp.onclick = clearFilter; }
+  else wp.hidden = true;
+}
+
+/* ---------- programa del curso ---------- */
+function renderIdx(){
+  const box = $('idx'); box.textContent = '';
+  [1, 2, 3].forEach(k => {
+    const c = h('div', {class:'idx-c'}); c.style.setProperty('--kc', 'var(--k' + k + ')');
+    c.appendChild(h('div', {class:'idx-h'}, [h('span', {text:CORTES[k].n + ' · ' + CORTES[k].r}), h('span', {text:CORTES[k].p})]));
+    WEEKS.filter(x => corteOf(x.w) === k).forEach(x => {
+      if (x.parcial){ c.appendChild(h('div', {class:'wk-par'}, [h('span', {text:String(x.w).padStart(2, '0')}), h('span', {text:'Parcial · cierre del corte'})])); return; }
+      const n = EVENTS.filter(e => inWeek(e, x.w)).length;
+      c.appendChild(h('button', {type:'button', class:'wk', 'aria-current':String(sesW === x.w), onclick:() => setWeek(x.w)},
+        [h('span', {class:'wn', text:String(x.w).padStart(2, '0')}), h('span', {class:'we', text:x.eje}), h('span', {class:'wc', text:n + ' hechos'})]));
+    });
+    box.appendChild(c);
+  });
+}
+function sessionText(x){
+  const evs = EVENTS.filter(e => inWeek(e, x.w));
+  let s = 'Semana ' + x.w + ' · ' + x.eje + '\nPregunta orientadora: ' + x.q + '\nLectura: ' + x.lec + '\nEstrategia: ' + x.st + '\n\nPreguntas para la sesión\n';
+  x.qs.forEach((q, i) => { s += (i + 1) + '. [' + TAGS[q[0]] + '] ' + q[1] + '\n'; });
+  s += '\nPreguntas por hecho\n'; let n = 1;
+  evs.forEach(e => e.qs.forEach(q => { s += (n++) + '. (' + Math.floor(e.t) + ', ' + e.ti + ') ' + q[1] + '\n'; }));
+  return s;
+}
+function renderSes(){
+  const x = WK[sesW], k = corteOf(sesW), box = $('ses'); box.textContent = ''; box.style.setProperty('--kc', 'var(--k' + k + ')');
+  box.appendChild(h('p', {class:'ses-k', text:'Semana ' + x.w + ' · ' + CORTES[k].n + ' · ' + CORTES[k].p + ' de la nota'}));
+  box.appendChild(h('h3', {text:x.eje}));
+  const q = h('blockquote', {class:'ses-q'}, [x.q]); if (x.nota) q.appendChild(h('small', {text:'Formulación propuesta. ' + x.nota})); box.appendChild(q);
+  box.appendChild(h('dl', {class:'ses-meta'}, [
+    h('div', null, [h('dt', {text:'Lectura obligatoria'}), h('dd', {text:x.lec})]),
+    h('div', null, [h('dt', {text:'Estrategia del syllabus'}), h('dd', {text:x.st})])]));
+  const evs = EVENTS.filter(e => inWeek(e, x.w)), chips = h('div', {class:'evchips'});
+  evs.forEach(e => chips.appendChild(h('button', {type:'button', class:'evchip' + (e.w === x.w ? '' : ' alt'), title:e.w === x.w ? 'Hecho central de la sesión' : 'Hecho relacionado con la sesión',
+    onclick:() => { stopPlay(); if (F.w !== x.w) setWeek(x.w); select(e.i, {reveal:true}); }}, [h('b', {text:String(Math.floor(e.t))}), e.ti])));
+  box.appendChild(h('div', null, [h('h4', {text:'Hechos en el mapa (' + evs.length + ')'}), chips]));
+  const ol = h('ol', {class:'qs'}); fillQs(ol, x.qs.map((qq, i) => QBY['s' + x.w + '-' + (i + 1)]));
+  box.appendChild(h('div', null, [h('h4', {text:'Preguntas para la sesión'}), ol]));
+  const copyBtn = h('button', {type:'button', class:'btn', text:'Copiar preguntas'});
+  copyBtn.onclick = () => {
+    const t = sessionText(x);
+    const ok = () => { copyBtn.textContent = 'Preguntas copiadas'; setTimeout(() => { copyBtn.textContent = 'Copiar preguntas'; }, 2200); };
+    const fallback = () => { let ta = $('copyBox'); if (!ta){ ta = h('textarea', {id:'copyBox', class:'copy-box', readonly:'', 'aria-label':'Texto de las preguntas para copiar'}); box.appendChild(ta); }
+      ta.value = t; ta.focus(); ta.select(); copyBtn.textContent = 'Seleccione el texto y cópielo'; };
+    try { navigator.clipboard.writeText(t).then(ok, fallback); } catch(_){ fallback(); }
+  };
+  box.appendChild(h('div', {class:'ses-actions'}, [
+    h('button', {type:'button', class:'btn btn-main', text:'Ver la sesión en el mapa', onclick:() => { if (F.w !== x.w) setWeek(x.w); reveal('atlas'); }}),
+    h('button', {type:'button', class:'btn', text:'Pregunta al azar de esta sesión', onclick:() => openRandom({week:x.w})}),
+    copyBtn]));
+}
+
+/* ---------- pregunta al azar ---------- */
+let lastQ = null, mCtx = null, mReturn = null;
+function poolFor(ctx){
+  const w = ctx && ctx.week ? ctx.week : F.w;
+  let pool;
+  if (w) pool = ALLQ.filter(q => (q.wk && q.wk.w === w) || (q.ev && inWeek(q.ev, w)));
+  else if (F.k) pool = ALLQ.filter(q => (q.wk && corteOf(q.wk.w) === F.k) || (q.ev && corteOf(q.ev.w) === F.k));
+  else pool = ALLQ;
+  const others = pool.filter(q => q !== lastQ), fresh = others.filter(q => !DONE.has(q.id));
+  return fresh.length ? fresh : others.length ? others : pool;
+}
+function showQ(){
+  const pool = poolFor(mCtx), q = pool[Math.floor(Math.random() * pool.length)]; lastQ = q;
+  const w = q.ev ? q.ev.w : q.wk ? q.wk.w : null;
+  $('mCard').style.setProperty('--kc', w ? kVar(w) : 'var(--ink)');
+  $('mK').textContent = 'Pregunta al azar · ' + TAGS[q.tag];
+  $('mQ').textContent = q.text;
+  $('mSrc').textContent = q.ev ? Math.floor(q.ev.t) + ' · ' + q.ev.ti + ' — Semana ' + q.ev.w + ', ' + WK[q.ev.w].eje
+    : q.wk ? 'Sesión de la semana ' + q.wk.w + ' · ' + q.wk.eje : 'Lámina II · ' + q.st.ti;
+  $('mGo').textContent = q.ev ? 'Abrir la ficha' : q.wk ? 'Abrir la sesión' : 'Ver la parada';
+  updMDone();
+}
+function updMDone(){ const on = DONE.has(lastQ.id); $('mDone').textContent = on ? 'Discutida ✓' : 'Marcar como discutida'; $('mDone').setAttribute('aria-pressed', String(on)); }
+function openRandom(ctx){ mCtx = ctx || null; if ($('modal').hidden) mReturn = document.activeElement; showQ(); $('modal').hidden = false; $('mNext').focus(); }
+function closeModal(keepFocus){ $('modal').hidden = true; if (!keepFocus && mReturn && mReturn.focus) mReturn.focus(); }
+$('rand').onclick = () => openRandom();
+$('mNext').onclick = showQ;
+$('mDone').onclick = () => { setDone(lastQ.id, !DONE.has(lastQ.id)); updMDone(); };
+$('mGo').onclick = () => { const q = lastQ; closeModal(true);
+  if (q.ev){ stopPlay(); select(q.ev.i, {reveal:true}); } else if (q.wk){ setWeek(q.wk.w); reveal('plan'); } else focusStop(q.st.n, true); };
+$('mClose').onclick = () => closeModal();
+$('modal').addEventListener('click', e => { if (e.target === $('modal')) closeModal(); });
+document.addEventListener('keydown', e => {
+  if ($('modal').hidden) return;
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Tab'){ const f = [...$('modal').querySelectorAll('button')]; const i = f.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0){ f[f.length - 1].focus(); e.preventDefault(); } else if (!e.shiftKey && i === f.length - 1){ f[0].focus(); e.preventDefault(); } }
+});
+
+/* ---------- Lámina II: plano del centro ---------- */
+const PL = {lon0:-74.0835, lat1:4.6195, S:14000};
+const pp = (lat, lon) => [(lon - PL.lon0) * PL.S, (PL.lat1 - lat) * PL.S];
+const PLS = {};
+function line(pts){ return pts.map((q, i) => { const p = pp(q[0], q[1]); return (i ? 'L' : 'M') + p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(''); }
+function buildPlano(){
+  const s = $('plano'); s.textContent = '';
+  el('rect', {x:0, y:0, width:420, height:392, fill:'var(--paper-hi)'}, s);
+  const r2 = mulberry(1538);
+  const cer = [[4.5915,-74.0630],[4.598,-74.0615],[4.604,-74.0600],[4.610,-74.0585],[4.6195,-74.0570]].map(q => pp(q[0], q[1]));
+  el('path', {d:'M' + cer.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join('L') + 'L420,0L420,392Z', fill:'var(--paper-lo)', opacity:.55}, s);
+  let hd = '';
+  for (let i = 0; i < cer.length - 1; i++){ const a = cer[i], b = cer[i + 1], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
+    for (let d = 0; d < L; d += 4.5){ const x = a[0] + (b[0] - a[0]) * d / L, y = a[1] + (b[1] - a[1]) * d / L, len = 8 + r2() * 26; hd += 'M' + x.toFixed(1) + ',' + y.toFixed(1) + 'l' + len.toFixed(1) + ',' + ((r2() - .5) * 3).toFixed(1); } }
+  el('path', {d:hd, stroke:'var(--ink-2)', 'stroke-width':.7, opacity:.6, fill:'none'}, s);
+  const mon = pp(4.6058, -74.0560);
+  el('path', {d:'M' + (mon[0] - 9) + ',' + (mon[1] + 6) + 'L' + mon[0] + ',' + (mon[1] - 9) + 'L' + (mon[0] + 9) + ',' + (mon[1] + 6) + 'Z', fill:'var(--paper-hi)', stroke:'var(--ink)', 'stroke-width':1}, s);
+  txt(s, mon[0], mon[1] + 20, 'Monserrate', 'pl-street', {'text-anchor':'middle'});
+  const ST = [
+    {pts:[[4.5925,-74.0786],[4.5981,-74.0752],[4.6013,-74.0737],[4.6065,-74.0713],[4.6110,-74.0699],[4.6150,-74.0684],[4.6195,-74.0668]], w:7.5, lab:'Carrera 7ª', at:[4.6042,-74.0725], rot:-66, dy:-7},
+    {pts:[[4.5945,-74.0818],[4.6000,-74.0795],[4.6060,-74.0770],[4.6120,-74.0748],[4.6195,-74.0724]], w:5.5, lab:'Carrera 10ª', at:[4.6100,-74.0756], rot:-67, dy:-6},
+    {pts:[[4.5993,-74.0660],[4.6003,-74.0700],[4.6013,-74.0737],[4.6026,-74.0780],[4.6042,-74.0835]], w:6.5, lab:'Av. Jiménez', at:[4.6022,-74.0768], rot:17, dy:-6},
+    {pts:[[4.6062,-74.0688],[4.6065,-74.0713],[4.6078,-74.0760],[4.6095,-74.0835]], w:5, lab:'Calle 19', at:[4.6086,-74.0800], rot:17, dy:-6},
+    {pts:[[4.6122,-74.0665],[4.6131,-74.0710],[4.6145,-74.0765],[4.6162,-74.0835]], w:6.5, lab:'Calle 26', at:[4.6153,-74.0800], rot:17, dy:-6}
+  ];
+  ST.forEach(r => el('path', {d:line(r.pts), stroke:'var(--ink)', 'stroke-width':r.w + 1.6, fill:'none', 'stroke-linejoin':'round'}, s));
+  ST.forEach(r => el('path', {d:line(r.pts), stroke:'var(--paper-hi)', 'stroke-width':r.w, fill:'none', 'stroke-linejoin':'round'}, s));
+  ST.forEach(r => { const p = pp(r.at[0], r.at[1]); txt(s, p[0], p[1], r.lab, 'pl-street', {'text-anchor':'middle', transform:'rotate(' + r.rot + ' ' + p[0].toFixed(1) + ' ' + p[1].toFixed(1) + ')', dy:r.dy}); });
+  const pz = pp(4.5981, -74.0760);
+  el('rect', {x:pz[0] - 10, y:pz[1] - 10, width:20, height:20, fill:'var(--paper-lo)', stroke:'var(--ink)', 'stroke-width':1, transform:'rotate(-24 ' + pz[0].toFixed(1) + ' ' + pz[1].toFixed(1) + ')'}, s);
+  txt(s, pz[0] + 16, pz[1] + 24, 'Plaza de Bolívar', 'pl-lab', {'text-anchor':'start'});
+  txt(s, 400, 315, 'CERROS ORIENTALES', 'pl-note', {'text-anchor':'middle', transform:'rotate(-80 400 315)'});
+  /* norte */
+  el('path', {d:'M28,22L34,40L28,36L22,40Z', fill:'var(--ink)'}, s); txt(s, 28, 18, 'N', 'pl-lab', {'text-anchor':'middle'});
+  txt(s, 10, 384, 'PLANO ESQUEMÁTICO · SIN ESCALA', 'pl-note');
+  STOPS.forEach(st => {
+    const p = pp(st.p[0], st.p[1]);
+    const g = el('g', {class:'pl-stop', transform:'translate(' + p[0].toFixed(1) + ' ' + p[1].toFixed(1) + ')', tabindex:0, role:'button', 'aria-label':'Parada ' + st.n + ': ' + st.ti}, s);
+    el('circle', {r:11, fill:'var(--ink)', stroke:'var(--paper-hi)', 'stroke-width':2.2}, g);
+    const t = el('text', {'text-anchor':'middle', dy:'.36em'}, g); t.textContent = st.n;
+    g.addEventListener('click', () => focusStop(st.n, true));
+    g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); focusStop(st.n, true); } });
+    PLS[st.n] = g;
+  });
+}
+function focusStop(n, scroll){
+  STOPS.forEach(st => { $('stop' + st.n).classList.toggle('on', st.n === n); PLS[st.n].classList.toggle('on', st.n === n); });
+  if (scroll){ const li = $('stop' + n); li.scrollIntoView({behavior:reduceMotion() ? 'auto' : 'smooth', block:'nearest'}); }
+}
+function renderStops(){
+  const ol = $('stops'); ol.textContent = '';
+  STOPS.forEach(st => {
+    const evs = st.ev.map(id => EVENTS.find(e => e.id === id)), chips = h('div', {class:'evchips'});
+    evs.forEach(e => chips.appendChild(h('button', {type:'button', class:'evchip', onclick:() => { stopPlay(); select(e.i, {reveal:true}); }}, [h('b', {text:String(Math.floor(e.t))}), e.ti])));
+    const qol = h('ol', {class:'qs'}); fillQs(qol, [QBY['b' + st.n]]);
+    ol.appendChild(h('li', {class:'stop', id:'stop' + st.n}, [
+      h('button', {type:'button', class:'stop-n', 'aria-label':'Ubicar la parada ' + st.n + ' en el plano', text:String(st.n), onclick:() => focusStop(st.n)}),
+      h('div', null, [h('h3', {text:st.ti}), h('p', {text:st.sub + '. ' + st.tx}), evs.length ? chips : null, qol])]));
+  });
+}
 
 /* ======================= Cronología ======================= */
 const tl = $('tl'), tlScroll = $('tlScroll'), tip = $('tlTip');
-const TL = {H:168, top:8, eraH:20, axis:122, pad:26};
+const TL = {H:184, top:8, eraH:20, axis:128, pad:26};
 let pinEls = [], cursorG = null;
 function buildTimeline(){
   const Wt = Math.max(tlScroll.clientWidth, 940);
   tl.setAttribute('width', Wt); tl.setAttribute('viewBox', '0 0 ' + Wt + ' ' + TL.H); tl.textContent = '';
   const x0 = TL.pad, x1 = Wt - TL.pad; tlX = t => x0 + (t - 1900) / 101 * (x1 - x0);
-  el('rect', {x:0, y:0, width:Wt, height:TL.H, fill:'transparent', class:'tl-bg'}, tl);
+  el('rect', {x:0, y:0, width:Wt, height:TL.H, fill:'transparent'}, tl);
   ERAS.forEach((er, k) => {
     const a = tlX(er[0]), b = tlX(er[1]), w = b - a;
     el('rect', {x:a, y:TL.top, width:w, height:TL.eraH, fill:k % 2 ? 'var(--paper)' : 'var(--paper-lo)', stroke:'var(--ink-3)', 'stroke-width':.6}, tl);
     const t = el('text', {x:a + w / 2, y:TL.top + 14.5, 'text-anchor':'middle', style:'font-family:var(--f-display); font-size:13px; letter-spacing:.06em; fill:var(--ink)'}, tl);
     t.textContent = w > er[2].length * 7.4 ? er[2] : er[3];
   });
-  /* eje */
   const ax = TL.axis; let tk = '';
-  for (let y = 1900; y <= 2001; y++){ const x = tlX(y), h = y % 10 === 0 ? 11 : y % 5 === 0 ? 7 : 3.5; tk += 'M' + x.toFixed(1) + ',' + ax + 'v' + h; }
+  for (let y = 1900; y <= 2001; y++){ const x = tlX(y), hh = y % 10 === 0 ? 11 : y % 5 === 0 ? 7 : 3.5; tk += 'M' + x.toFixed(1) + ',' + ax + 'v' + hh; }
   el('path', {d:'M' + x0 + ',' + ax + 'H' + x1, stroke:'var(--ink)', 'stroke-width':1.6}, tl);
   el('path', {d:'M' + x0 + ',' + (ax + 2.5) + 'H' + x1, stroke:'var(--ink)', 'stroke-width':.5}, tl);
   el('path', {d:tk, stroke:'var(--ink)', 'stroke-width':.8}, tl);
   for (let y = 1900; y <= 2000; y += 10){ const t = el('text', {x:tlX(y), y:ax + 25, 'text-anchor':'middle', style:'font-family:var(--f-type); font-size:12px; fill:var(--ink)'}, tl); t.textContent = y; }
-  /* hitos en carriles */
-  const lanes = [100, 82, 64, 46], last = lanes.map(() => -1e9), gap = 15;
+  const lanes = [112, 96, 80, 64, 48], last = lanes.map(() => -1e9), gap = 14;
   pinEls = [];
   EVENTS.forEach(e => {
-    const x = tlX(e.t); let L = last.findIndex(v => x - v >= gap); if (L < 0){ L = last.indexOf(Math.min(...last)); } last[L] = x;
-    const on = active.has(e.c), y = lanes[L];
-    const g = el('g', {class:'pin', tabindex:on ? 0 : -1, role:'button', 'aria-label':e.f + ': ' + e.ti, style:'cursor:' + (on ? 'pointer' : 'default') + '; opacity:' + (on ? 1 : .18)}, tl);
+    const x = tlX(e.t); let Ln = last.findIndex(v => x - v >= gap); if (Ln < 0) Ln = last.indexOf(Math.min(...last)); last[Ln] = x;
+    const on = visible(e), y = lanes[Ln];
+    const g = el('g', {class:'pin', tabindex:on ? 0 : -1, role:'button', 'aria-label':e.f + ': ' + e.ti, style:'cursor:' + (on ? 'pointer' : 'default') + '; opacity:' + (on ? 1 : .16)}, tl);
     el('line', {x1:x, y1:y, x2:x, y2:ax, stroke:'var(--ink-3)', 'stroke-width':.8}, g);
-    el('circle', {cx:x, cy:y, r:12, fill:'transparent'}, g);
-    const dot = el('circle', {cx:x, cy:y, r:5.6, fill:'var(--c-' + e.c + ')', stroke:'var(--paper-hi)', 'stroke-width':1.6}, g);
+    el('circle', {cx:x, cy:y, r:11, fill:'transparent'}, g);
+    const dot = el('circle', {cx:x, cy:y, r:5.6, fill:kVar(e.w), stroke:'var(--paper-hi)', 'stroke-width':1.6}, g);
     g.__e = e; g.__dot = dot; g.__x = x; g.__y = y;
     if (on){
       g.addEventListener('click', ev => { ev.stopPropagation(); stopPlay(); select(e.i, {noScroll:true}); });
       g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); stopPlay(); select(e.i, {noScroll:true}); } });
-      g.addEventListener('pointerenter', () => showTip(g)); g.addEventListener('pointerleave', () => tip.hidden = true);
-      g.addEventListener('focus', () => showTip(g)); g.addEventListener('blur', () => tip.hidden = true);
+      g.addEventListener('pointerenter', () => showTip(g)); g.addEventListener('pointerleave', () => { tip.hidden = true; });
+      g.addEventListener('focus', () => showTip(g)); g.addEventListener('blur', () => { tip.hidden = true; });
     }
     pinEls.push(g);
   });
-  /* cursor del año */
   cursorG = el('g', {'pointer-events':'none'}, tl);
   el('line', {class:'cur-l', y1:TL.top + TL.eraH + 2, y2:ax + 4, stroke:'var(--frontier)', 'stroke-width':1.4, 'stroke-dasharray':'3 2'}, cursorG);
-  el('rect', {class:'cur-r', y:ax + 30, width:44, height:17, fill:'var(--frontier)'}, cursorG);
-  const ct = el('text', {class:'cur-t', y:ax + 42.5, 'text-anchor':'middle', style:'font-family:var(--f-type); font-size:12px; fill:var(--paper-hi)'}, cursorG);
-  ct.textContent = '';
+  el('rect', {class:'cur-r', y:ax + 32, width:44, height:17, fill:'var(--frontier)'}, cursorG);
+  el('text', {class:'cur-t', y:ax + 44.5, 'text-anchor':'middle', style:'font-family:var(--f-type); font-size:12px; fill:var(--paper-hi)'}, cursorG);
   moveCursor(curT); highlightPin();
 }
 function moveCursor(t){ if (!cursorG) return; const x = tlX(Math.min(2000.99, Math.max(1900, t)));
-  cursorG.querySelector('.cur-l').setAttribute('x1', x); cursorG.querySelector('.cur-l').setAttribute('x2', x);
+  const l = cursorG.querySelector('.cur-l'); l.setAttribute('x1', x); l.setAttribute('x2', x);
   cursorG.querySelector('.cur-r').setAttribute('x', x - 22); const ct = cursorG.querySelector('.cur-t'); ct.setAttribute('x', x); ct.textContent = Math.floor(t); }
-function highlightPin(){ pinEls.forEach(g => { const s = g.__e.i === cur; g.__dot.setAttribute('r', s ? 8.5 : 5.6); g.__dot.setAttribute('stroke', s ? 'var(--ink)' : 'var(--paper-hi)'); g.__dot.setAttribute('stroke-width', s ? 2.2 : 1.6); if (s) tl.insertBefore(g, cursorG); }); }
+function highlightPin(){ pinEls.forEach(g => { const s = g.__e.i === cur; g.__dot.setAttribute('r', s ? 8.5 : 5.6); g.__dot.setAttribute('stroke', s ? 'var(--ink)' : 'var(--paper-hi)'); g.__dot.setAttribute('stroke-width', s ? 2.2 : 1.6); if (s && cursorG) tl.insertBefore(g, cursorG); }); }
 function showTip(g){ const sr = tlScroll.getBoundingClientRect(), cr = tl.parentNode.parentNode.getBoundingClientRect();
-  tip.textContent = Math.floor(g.__e.t) + ' · ' + g.__e.ti; tip.hidden = false;
-  let left = sr.left - cr.left + g.__x - tlScroll.scrollLeft; left = Math.max(110, Math.min(cr.width - 110, left));
+  tip.textContent = Math.floor(g.__e.t) + ' · ' + g.__e.ti + ' · Sem. ' + g.__e.w; tip.hidden = false;
+  let left = sr.left - cr.left + g.__x - tlScroll.scrollLeft; left = Math.max(130, Math.min(cr.width - 130, left));
   tip.style.left = left + 'px'; tip.style.top = (sr.top - cr.top + g.__y) + 'px'; }
 function scrollPinIntoView(){ if (!tlX || tlScroll.scrollWidth <= tlScroll.clientWidth + 2) return; const x = tlX(EVENTS[cur].t);
-  const l = tlScroll.scrollLeft, w = tlScroll.clientWidth; if (x < l + 40 || x > l + w - 40) tlScroll.scrollTo({left:x - w / 2, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }
-
-/* arrastrar sobre la regla para mover el año */
+  const l = tlScroll.scrollLeft, w = tlScroll.clientWidth; if (x < l + 40 || x > l + w - 40) tlScroll.scrollTo({left:x - w / 2, behavior:reduceMotion() ? 'auto' : 'smooth'}); }
 let scrub = null;
 function tAtClient(cx){ const r = tl.getBoundingClientRect(), x = cx - r.left, x0 = TL.pad, x1 = r.width - TL.pad; return Math.max(1900, Math.min(2000.99, 1900 + (x - x0) / (x1 - x0) * 101)); }
-tl.addEventListener('pointerdown', e => { if (e.target.closest('.pin')) return; const r = tl.getBoundingClientRect(); if (e.clientY - r.top < TL.top + TL.eraH) return;
-  scrub = {id:e.pointerId, x:e.clientX, moved:false}; });
+tl.addEventListener('pointerdown', e => { if (e.target.closest('.pin')) return; const r = tl.getBoundingClientRect(); if (e.clientY - r.top < TL.top + TL.eraH) return; scrub = {id:e.pointerId, x:e.clientX, moved:false}; });
 tl.addEventListener('pointermove', e => { if (!scrub || e.pointerId !== scrub.id) return;
   if (!scrub.moved && Math.abs(e.clientX - scrub.x) > 5){ scrub.moved = true; try { tl.setPointerCapture(e.pointerId); } catch(_){} stopPlay(); cancelAnimationFrame(yearAnim); }
   if (scrub.moved){ e.preventDefault(); setYear(tAtClient(e.clientX)); } });
 tl.addEventListener('pointerup', e => { if (!scrub || e.pointerId !== scrub.id) return; const was = scrub.moved; scrub = null;
   if (!was){ stopPlay(); cancelAnimationFrame(yearAnim); setYear(tAtClient(e.clientX)); } });
-tl.addEventListener('pointercancel', () => scrub = null);
+tl.addEventListener('pointercancel', () => { scrub = null; });
 
 /* ======================= Arranque ======================= */
 function start(){
-  const h = (location.hash || '').slice(1), k = EVENTS.findIndex(e => e.id === h);
-  cur = k >= 0 ? k : 0; curT = EVENTS[cur].t;
+  const hs = (location.hash || '').slice(1), k = EVENTS.findIndex(e => e.id === hs);
+  cur = k >= 0 ? k : 0; curT = EVENTS[cur].t; sesW = EVENTS[cur].w;
+  $('mCount').textContent = EVENTS.length + ' hechos';
+  renderChips(); renderIdx(); renderSes(); renderStops(); buildPlano(); updateProgress();
   buildTimeline(); applyView(); renderFicha(); setYear(curT); highlightPin(); scrollPinIntoView();
 }
 let rz = null;

@@ -8,6 +8,7 @@ Aqui van mis proyectos hasta la fecha
 - Abra el archivo en cualquier navegador; no necesita servidor ni instalación.
 - 47 hechos del siglo XX en el mapa y en una línea de tiempo, cada uno ligado a su sesión del curso y coloreado por corte (I, II, III).
 - Al elegir un hecho, el mapa muestra los departamentos que existían ese año, incluida la separación de Panamá en 1903.
-- Programa del curso: pregunta orientadora, lectura y estrategia de cada semana, con 138 preguntas para la participación en clase que se pueden marcar como discutidas, sacar al azar o copiar.
+- Programa del curso: pregunta orientadora, lectura y estrategia de cada semana, y una dinámica de 20 minutos con cronómetro: ubicar los hechos en el mapa (reto «¿Dónde ocurrió?»), ordenarlos en el tiempo y conversar sobre una pregunta.
+- Una pregunta rápida por hecho; las preguntas se pueden marcar como discutidas o sacar al azar.
 - Lámina II: cinco paradas en el centro histórico de Bogotá para una salida de campo.
 - Cartografía base: Natural Earth (dominio público).
